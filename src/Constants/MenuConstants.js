@@ -51,12 +51,118 @@ const HEART = {
   height: "35px"
 }
 
+const DIALOG_STYLES = {
+  "& .MuiDialog-paper": {
+    borderRadius: "20px",
+    width: "900px",
+    height: "auto",
+    padding: "24px",
+    boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
+    backgroundColor: mode === "dark" ? "black" : "#fff",
+  }
+}
+
+const DIALOG_ICON_BUTTON = {
+  position: "absolute",
+  right: 16,
+  top: 16,
+  color: "#333",
+}
+
+const DIALOG_CONTENT = {
+  padding: 0,
+  display: "flex", gap: "24px"
+}
+
+const DIALOG_IMG = {
+  width: "320px",
+  height: "420px",
+  borderRadius: "10px",
+  objectFit: "cover",
+  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
+}
+
+const DIALOG_DIV = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  width: "100%",
+}
+
+const DIALOG_SPAN = {
+  fontSize: "22px",
+  marginBottom: "16px",
+  textOverflow: "ellipsis",
+  overflow: "hidden",
+  whiteSpace: "nowrap",
+  maxWidth: "500px",
+  width: "100%",
+}
+
+const DIALOG_SELLER = {
+  fontSize: "16px",
+  marginBottom: "24px",
+}
+
+const DIALOG_BUY_BUTTON = {
+  backgroundColor: "#D70057",
+  color: "#fff",
+  width: "48%",
+  padding: "12px 0",
+  borderRadius: "8px",
+  fontWeight: 700,
+  marginRight: "2%",
+  fontSize: "16px",
+  "&:hover": {
+    backgroundColor: "#c5004e",
+  }
+}
+
+const DIALOG_CART_BUTTON = {
+  borderColor: "#D70057",
+  color: "#D70057",
+  width: "48%",
+  padding: "12px 0",
+  borderRadius: "8px",
+  fontWeight: 700,
+  fontSize: "16px",
+  "&:hover": {
+    borderColor: "#c5004e",
+    color: "#c5004e",
+  }
+}
+
+const DIALOG_MORE_BUTTON = {
+  borderColor: "#D70057",
+  color: "#D70057",
+  width: "98%",
+  padding: "6px 0",
+  borderRadius: "8px",
+  fontWeight: 700,
+  fontSize: "16px",
+
+  "&:hover": {
+    borderColor: "#c5004e",
+    color: "#c5004e",
+  },
+}
+
 export {
   StyledLink,
   Divider,
   MENU_STYLE,
   FAVORITE_STYLES,
   HEART,
+  DIALOG_STYLES,
+  DIALOG_ICON_BUTTON,
+  DIALOG_CONTENT,
+  DIALOG_IMG,
+  DIALOG_DIV,
+  DIALOG_SPAN,
+  DIALOG_SELLER,
+  DIALOG_BUY_BUTTON,
+  DIALOG_CART_BUTTON,
+  DIALOG_MORE_BUTTON,
   fetchUser
 };
 
