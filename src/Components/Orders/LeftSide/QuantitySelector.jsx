@@ -1,7 +1,8 @@
 import { Box, useMediaQuery } from "@mui/material";
 import ThemeModes from "../../Shared/ThemeModes";
 import { useSelector } from "react-redux";
-
+import { COUNTER_BUTTON_STYLES, QUANTITY_STYLES } from "../../../Constants/OrderPageConstants";
+import { DARK } from "../../../Constants/GlobalConstants"
 
 export default function QuantitySelector({
   quantity,
@@ -28,19 +29,7 @@ export default function QuantitySelector({
     <Box sx={{ display: "flex", alignItems: "center", position: { xs: 'absolute', sm: 'unset' }, bottom: isDesktopSm2 ? '110px' : '63px', left: '110px' }}>
       <button
         onClick={() => onDecrement(1)}
-        style={{
-          width: "24px",
-          height: "24px",
-          border: "none",
-          borderRadius: "4px",
-          fontSize: "16px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: 'transparent',
-          cursor: 'pointer'
-
-        }}
+        style={COUNTER_BUTTON_STYLES}
         disabled={quantity <= 1}
       >
         <ThemeModes tagName='p'>-</ThemeModes>
@@ -50,34 +39,13 @@ export default function QuantitySelector({
         value={quantity}
         onChange={handleInputChange}
         style={{
-          marginX: "8px",
-          width: "60px",
-          fontSize: "14px",
-          textAlign: "center",
-          border: "none",
-          outline: "none",
-          borderRadius: "4px",
-          padding: "2px",
-          WebkitAppearance: "none",
-          backgroundColor: 'transparent',
-          MozAppearance: "textfield",
-          color: mode === 'dark' ? 'white' : 'black'
+          ...QUANTITY_STYLES,
+          color: mode === DARK ? 'white' : 'black'
         }}
       />
       <button
         onClick={() => onIncrement(1)}
-        style={{
-          width: "24px",
-          height: "24px",
-          border: "none",
-          borderRadius: "4px",
-          fontSize: "16px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: 'transparent',
-          cursor: 'pointer'
-        }}
+        style={COUNTER_BUTTON_STYLES}
       >
         <ThemeModes tagName='p'>+</ThemeModes>
       </button>

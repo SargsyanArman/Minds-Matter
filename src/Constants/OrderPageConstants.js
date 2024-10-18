@@ -100,6 +100,33 @@ const ORDER_FAV_BORDER_COLOR = {
     color: "rgba(240, 240, 240, 0.7)",
 }
 
+const QUANTITY_STYLES = {
+    marginX: "8px",
+    width: "60px",
+    fontSize: "14px",
+    textAlign: "center",
+    border: "none",
+    outline: "none",
+    borderRadius: "4px",
+    padding: "2px",
+    WebkitAppearance: "none",
+    backgroundColor: 'transparent',
+    MozAppearance: "textfield",
+}
+
+const COUNTER_BUTTON_STYLES = {
+    width: "24px",
+    height: "24px",
+    border: "none",
+    borderRadius: "4px",
+    fontSize: "16px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: 'transparent',
+    cursor: 'pointer'
+}
+
 export {
     BOX_BG,
     CONTAINER_BG,
@@ -117,5 +144,7 @@ export {
     ORDER_TEXT_LINE,
     ORDER_BUTTON_FAVORITE,
     ORDER_DELETE_STYLES,
-    ORDER_FAV_BORDER_COLOR
+    ORDER_FAV_BORDER_COLOR,
+    QUANTITY_STYLES,
+    COUNTER_BUTTON_STYLES,
 };
