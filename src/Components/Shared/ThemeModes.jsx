@@ -139,7 +139,7 @@ const ThemeModes = forwardRef(function ThemeModes({
         </button>
       );
 
-    case "buttonModeDeliveris":
+    case "button_mode":
       return (
         <button
           {...rest}

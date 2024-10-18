@@ -45,7 +45,7 @@ const Balance = () => {
               {exchange(0, 'USD')} {curr.currSymbol}
             </ThemeModes>
           </ThemeModes>
-          <ThemeModes tagName="buttonModeDeliveris" className='button-topUp' onClick={() => navigate('/payment')}>
+          <ThemeModes tagName="button_mode" className='button-topUp' onClick={() => navigate('/payment')}>
             {t(`${prefix}.wallet`)}
           </ThemeModes>
         </ThemeModes>

@@ -17,7 +17,7 @@ const Deliveries = () => {
       <ThemeModes tagName="gn-p" style={{ margin: "22px 0" }}>
         {t(`${prefix}.deliveries text`)}
       </ThemeModes>
-      <ThemeModes tagName="buttonModeDeliveris" onClick={() => navigate('/orders')}>{t(`${prefix}.deliveries button`)}</ThemeModes>
+      <ThemeModes tagName="button_mode" onClick={() => navigate('/orders')}>{t(`${prefix}.deliveries button`)}</ThemeModes>
     </ThemeModes>
   );
 };

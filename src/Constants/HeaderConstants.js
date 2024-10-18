@@ -115,6 +115,31 @@ const StyledSelect = styled(Select)(({ theme }) => ({
   },
 }));
 
+const MODAL_STYLES = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  position: 'absolute',
+  bottom: '0%',
+  width: '100%',
+  bgcolor: 'background.paper',
+  padding: '32px',
+  gap: '15px',
+};
+
+const AVATAR_STYLES = {
+  height: "100px",
+  width: "100px",
+};
+
+const BUTTON_STYLES = {
+  width: '100%',
+  padding: '12px',
+  textAlign: 'center',
+  transition: 'background-color 0.3s ease',
+};
+
+
 export {
   TypographyStyled,
   IconButtonStyled,
@@ -123,5 +148,8 @@ export {
   StyledInputBase,
   StyledSelect,
   CURR_MENU_STYLES,
-  LANG_MENU_STYLES
+  LANG_MENU_STYLES,
+  MODAL_STYLES,
+  AVATAR_STYLES,
+  BUTTON_STYLES
 };

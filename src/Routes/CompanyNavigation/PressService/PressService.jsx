@@ -23,7 +23,7 @@ const PressService = () => {
                         <ThemeModes tagName='p' style={{ marginTop: '14px' }}>{t(`${prefix}.left text`)}</ThemeModes>
                     </ThemeModes>
                     <ThemeModes style={{ marginTop: 'auto' }}>
-                        <ThemeModes className='service-button' tagName='buttonModeDeliveris' onClick={() => navigate('/services/about-us')}>{t(`${prefix}.left button`)}</ThemeModes>
+                        <ThemeModes className='service-button' tagName='button_mode' onClick={() => navigate('/services/about-us')}>{t(`${prefix}.left button`)}</ThemeModes>
                     </ThemeModes>
                     <img src={serviceImg} className='press-srv-image' alt="Press Service" />
                 </ThemeModes>

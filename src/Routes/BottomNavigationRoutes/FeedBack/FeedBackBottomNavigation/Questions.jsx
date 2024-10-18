@@ -15,7 +15,7 @@ const Questions = () => {
       <ThemeModes tagName="gn-p" style={{ margin: "22px 0" }}>
         {t(`${prefix}.questions text`)}
       </ThemeModes>
-      <ThemeModes tagName="buttonModeDeliveris" onClick={() => navigate('/')}>{t(`${prefix}.questions button`)}</ThemeModes>
+      <ThemeModes tagName="button_mode" onClick={() => navigate('/')}>{t(`${prefix}.questions button`)}</ThemeModes>
     </ThemeModes>
   );
 };

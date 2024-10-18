@@ -17,7 +17,7 @@ const Checks = () => {
       <ThemeModes tagName="gn-p" style={{ paddingBottom: "20px" }}>
         {t(`${prefix}.checks text`)}
       </ThemeModes>
-      <ThemeModes tagName="buttonModeDeliveris" onClick={() => navigate('/')}>{t(`${prefix}.checks button`)}</ThemeModes>
+      <ThemeModes tagName="button_mode" onClick={() => navigate('/')}>{t(`${prefix}.checks button`)}</ThemeModes>
     </ThemeModes>
   );
 };
