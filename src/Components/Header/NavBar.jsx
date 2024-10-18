@@ -18,6 +18,7 @@ import LangMenu from "./LangMenu";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import {
     IconButtonStyled,
+    NAVBAR_BOX_STYLES,
     Search,
     SearchIconWrapper,
     StyledInputBase,
@@ -27,6 +28,7 @@ import { useSelector } from "react-redux";
 import mindMatters from "/Mind_Matter.png";
 import { CurrencyContext } from "../../Contexts/CurrencyContext";
 import NavBarBottom from "./NavBarBottom";
+import { DARK } from "../../Constants/GlobalConstants";
 
 export default function SearchAppBar() {
     const { handleMenuClick, handleBasketClick, handleFavoritesClick } = useContext(HeaderContext);
@@ -41,26 +43,30 @@ export default function SearchAppBar() {
         setCurrMenu(event.currentTarget);
     }, [setCurrMenu]);
 
+    const iconButtons = [
+        { icon: <LanguageIcon />, onClick: handleLangMenuClick },
+        { icon: <AttachMoneyIcon />, onClick: handleCurrMenuClick },
+        { icon: <FavoriteRoundedIcon />, onClick: handleFavoritesClick, authRequired: true },
+        { icon: <ShoppingCartRoundedIcon />, onClick: handleBasketClick },
+        { icon: <AccountCircleIcon />, onClick: handleMenuClick }
+    ];
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar
                 position="static"
                 sx={{
-                    background:
-                        mode === "dark"
-                            ? "linear-gradient(to right, #9d0000, #d40000)"
-                            : "linear-gradient(to right, #a103fc, #e703fc)",
+                    background: mode === DARK
+                        ? "linear-gradient(to right, #9d0000, #d40000)"
+                        : "linear-gradient(to right, #a103fc, #e703fc)",
                     height: "80px",
                 }}
             >
                 <Toolbar sx={{ mt: 1 }}>
                     <Link to="/">
-                        <img
-                            src={mindMatters}
-                            className="general-page-logo"
-                        />
+                        <img src={mindMatters} className="general-page-logo" alt="Logo" />
                     </Link>
-                    <Box sx={{ flexGrow: 1, display: "flex", justifyContent: "center" }}>
+                    <Box sx={NAVBAR_BOX_STYLES}>
                         <Search style={{ width: '100%' }}>
                             <SearchIconWrapper>
                                 <SearchIcon />
@@ -74,63 +80,27 @@ export default function SearchAppBar() {
                             />
                         </Search>
                     </Box>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            gap: 1,
-                        }}
-                    >
-                        <IconButtonStyled
-                            size="large"
-                            color="inherit"
-                            onClick={handleLangMenuClick}
-                        >
-                            <LanguageIcon />
-                        </IconButtonStyled>
-
-                        <IconButtonStyled
-                            size="large"
-                            color="inherit"
-                            onClick={handleCurrMenuClick}
-                        >
-                            <AttachMoneyIcon />
-                        </IconButtonStyled>
-
-                        {isAuth ? (
-                            <>
+                    <Box sx={{ display: "flex", gap: 1 }}>
+                        <SwitcherMode />
+                        {iconButtons.map(({ icon, onClick, authRequired }, index) => (
+                            !authRequired || (authRequired && isAuth) ? (
                                 <IconButtonStyled
+                                    key={index}
                                     size="large"
                                     color="inherit"
-                                    onClick={handleFavoritesClick}
+                                    onClick={onClick}
                                 >
-                                    <FavoriteRoundedIcon />
+                                    {icon}
                                 </IconButtonStyled>
-                            </>
-                        ) : null}
-
-                        <SwitcherMode />
-                        <IconButtonStyled
-                            size="large"
-                            color="inherit"
-                            onClick={handleBasketClick}
-                        >
-                            <ShoppingCartRoundedIcon />
-                        </IconButtonStyled>
-
-                        <IconButtonStyled
-                            size="large"
-                            color="inherit"
-                            onClick={handleMenuClick}
-                        >
-                            <AccountCircleIcon />
-                        </IconButtonStyled>
+                            ) : null
+                        ))}
                     </Box>
                 </Toolbar>
             </AppBar>
             <AccMenu />
             <CurrMenu />
             <LangMenu />
-            <NavBarBottom></NavBarBottom>
+            <NavBarBottom />
         </Box>
     );
 }

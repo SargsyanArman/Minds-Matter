@@ -139,6 +139,11 @@ const BUTTON_STYLES = {
   transition: 'background-color 0.3s ease',
 };
 
+const NAVBAR_BOX_STYLES = {
+  flexGrow: 1,
+  display: "flex",
+  justifyContent: "center"
+}
 
 export {
   TypographyStyled,
@@ -151,5 +156,6 @@ export {
   LANG_MENU_STYLES,
   MODAL_STYLES,
   AVATAR_STYLES,
-  BUTTON_STYLES
+  BUTTON_STYLES,
+  NAVBAR_BOX_STYLES
 };
