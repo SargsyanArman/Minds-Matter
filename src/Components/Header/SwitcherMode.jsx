@@ -13,6 +13,11 @@ export default function SwitcherMode() {
   const { t } = useContext(LangContext);
   const prefix = "Header";
 
+  const modes = [
+    { value: "light", icon: <Brightness7 sx={{ mr: 1, color: "black" }} />, label: t(`${prefix}.light mode`) },
+    { value: "dark", icon: <Brightness4 sx={{ mr: 1, color: "black" }} />, label: t(`${prefix}.dark mode`) },
+  ];
+
   const Icon = mode === "light" ? Brightness7 : Brightness4;
 
   return (
@@ -22,14 +27,12 @@ export default function SwitcherMode() {
       IconComponent={(props) => <Icon {...props} sx={{ color: "white" }} />}
       renderValue={() => null}
     >
-      <MenuItem value="light">
-        <Brightness7 sx={{ mr: 1, color: "black" }} />
-        <ListItemText>{t(`${prefix}.light mode`)}</ListItemText>
-      </MenuItem>
-      <MenuItem value="dark">
-        <Brightness4 sx={{ mr: 1, color: "black" }} />
-        <ListItemText>{t(`${prefix}.dark mode`)}</ListItemText>
-      </MenuItem>
+      {modes.map(({ value, icon, label }) => (
+        <MenuItem key={value} value={value}>
+          {icon}
+          <ListItemText>{label}</ListItemText>
+        </MenuItem>
+      ))}
     </StyledSelect>
   );
 }
