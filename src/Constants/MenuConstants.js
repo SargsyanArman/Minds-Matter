@@ -40,6 +40,24 @@ const MENU_STYLE = {
   },
 };
 
-export { StyledLink, Divider, MENU_STYLE, fetchUser };
+const FAVORITE_STYLES = {
+  width: "35px",
+  height: "35px",
+  color: "red"
+}
+
+const HEART = {
+  width: "35px",
+  height: "35px"
+}
+
+export {
+  StyledLink,
+  Divider,
+  MENU_STYLE,
+  FAVORITE_STYLES,
+  HEART,
+  fetchUser
+};
 
 
