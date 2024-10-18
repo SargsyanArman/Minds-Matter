@@ -35,7 +35,6 @@ const OrdersPageContent = () => {
     }, 0);
 
   const exchangedPrice = exchange(selectedPrice, "USD");
-  const finalPrice = typeof exchangedPrice === "number" ? exchangedPrice : 0;
 
   return (
     <BoxMuiSecond display="flex" flexDirection={isDesktop ? 'row' : 'column'} alignItems="center" gap={2} p={isDesktop ? 2 : 0}
