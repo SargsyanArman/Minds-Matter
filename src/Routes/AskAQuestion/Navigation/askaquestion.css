@@ -1,0 +1,92 @@
+.faq {
+  max-width: 1504px;
+  margin: 0 auto;
+  padding: 24px 32px 48px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.faq ul {
+  list-style: none;
+}
+
+.faq a {
+  color: #242424;
+  text-decoration: none;
+}
+
+.faq .active a {
+  color: #a73afd;
+  text-decoration: none;
+  cursor: default;
+}
+
+.faq nav ul {
+  display: flex;
+  gap: 20px 40px;
+  justify-content: left;
+}
+
+.faq nav ul a {
+  padding-bottom: 8px;
+  font-size: 1rem;
+  line-height: 22px;
+  transition: color 0.3s ease 0s;
+}
+
+.faq nav ul a:hover {
+  color: #a73afd;
+}
+
+.faq .contentWrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: left;
+}
+
+.faq .sidebar {
+  width: 180px;
+}
+
+.faq .sidebar ul a {
+  transition: text-decoration 0.3s ease 0s;
+}
+
+.faq .sidebar ul div:not(.active) a:hover {
+  text-decoration: underline;
+}
+
+.faq .sidebar ul {
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.faq .sidebar ul>div {
+  padding: 0 10px;
+}
+
+.faq .sidebar .list-subheader {
+  padding: 8px 10px;
+  background-color: #f4f4f4;
+  color: #242424;
+  font-size: 1rem;
+  line-height: 22px;
+  font-weight: bold;
+}
+
+.faq .content {
+  padding-left: 30px;
+}
+
+.faq .content h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.faq .content p {
+  margin-bottom: 15px;
+  color: #8b8b8b;
+  font-size: 1rem;
+  line-height: 22px;
+}

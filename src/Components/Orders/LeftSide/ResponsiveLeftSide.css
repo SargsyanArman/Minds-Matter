@@ -1,0 +1,27 @@
+.purpleP {
+    font-size: 16px;
+}
+
+.purpleP-money {
+    font-size: 16px;
+}
+
+@media (max-width: 700px) {
+    .purpleP {
+        display: none;
+    }
+
+    .purpleP-money {
+        position: absolute;
+        bottom: 70px;
+        left: -8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .purpleP-money {
+        position: unset;
+    }
+}
+
+@media (max-width: 00px) {}

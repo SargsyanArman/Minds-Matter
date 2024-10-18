@@ -1,0 +1,202 @@
+.contact {
+  padding: 24px 40px 48px;
+  background-color: #f6f6f9;
+  color: #242424;
+}
+
+.contact>nav {
+  margin: 20px 0;
+}
+
+.contact ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.contact nav ul {
+  justify-content: left;
+  gap: 40px;
+}
+
+.contact nav a {
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  color: #242424;
+  font-size: 1.25rem;
+  line-height: 22px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact nav .active a,
+.contact nav a:hover {
+  color: #a73afd;
+}
+
+.contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin: 20px 0;
+}
+
+.write-us {
+  padding: 28px 32px 32px;
+  width: 50%;
+  position: relative;
+  min-height: 338px;
+  border-radius: 8px;
+  height: 100%;
+  background: linear-gradient(150deg, #f6ebff, #f2e2ff);
+}
+
+.write-us>h2 {
+  font-size: 2rem;
+}
+
+.write-us>p {
+  margin-top: 10px;
+}
+
+.write-us>button {
+  background-color: white;
+  color: #a73afd;
+  position: absolute;
+  left: 32px;
+  bottom: 34px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 10px 51px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.write-us>button:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card {
+  position: relative;
+  margin: 0 10px 20px;
+  padding: 28px 32px 85px;
+  min-height: 338px;
+  width: calc(100% / 12 * 2.999 - 20px);
+  background-color: white;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.contact-card>h2 {
+  font-size: 32px;
+}
+
+.contact-card>p {
+  color: #8695c1;
+  margin-top: 10px;
+  font-size: 17px;
+}
+
+.text-contact {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  color: #a73afd;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.write-us-span {
+  border-bottom: 1px dashed #8d8791;
+  cursor: pointer;
+  white-space: nowrap;
+  padding-bottom: 2px;
+}
+
+.icon {
+  display: block;
+  width: 195px;
+  height: 238px;
+  position: absolute;
+  top: 19px;
+  right: 4.5vw;
+  background-image: url('/icon_background.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (max-width: 1150px) {
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .write-us span {
+    display: none;
+  }
+
+  .contact {
+    padding: 15px;
+
+  }
+
+  .contact h1,
+  .write-us>h2 {
+    font-size: 22px;
+  }
+
+  .contact p,
+  span,
+  .write-us p {
+    font-size: 17px;
+  }
+
+  .write-us button {
+    left: 189px;
+    bottom: 70px;
+  }
+
+  .contact-card,
+  .write-us {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    min-height: 150px;
+  }
+
+  .text-contact {
+    bottom: 20px;
+    left: 11px;
+  }
+}
+
+@media (max-width: 500px) {
+  .write-us button {
+    left: 165px;
+    bottom: 17px;
+    padding: 1px 12px 1px;
+    font-size: 12px;
+  }
+
+  .contact h1,
+  .write-us>h2 {
+    font-size: 20px;
+  }
+
+  .contact p,
+  span,
+  .write-us p {
+    font-size: 15px;
+  }
+
+  .write-us {
+    min-height: 80px;
+  }
+
+}

@@ -1,0 +1,78 @@
+.bug-bounty-item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 70%;
+    min-Height: 142px;
+    padding: 28px 32px 32px;
+    border-radius: 20px;
+}
+
+.bug-bounty-item h1 {
+    font-size: 40px;
+}
+
+.bug-bounty-item p {
+    font-size: 18px;
+}
+
+.subHeaders {
+    margin: 25px 0
+}
+
+.flex-col {
+    gap: 35px
+}
+
+.table {
+    border: 1px solid #ddd;
+}
+
+.table th {
+    border: 1px solid #ddd;
+}
+
+.table td {
+    text-align: center;
+    padding-top: 10px;
+    border: 1px solid #ddd;
+}
+
+.rules li {
+    font-size: 17px;
+    margin-left: 40px;
+}
+
+@media (max-width: 1099px) {
+    .bug-bounty-item {
+        max-width: 90%;
+    }
+
+    .bug-bounty-item h1 {
+        font-size: 26px;
+    }
+
+    .bug-bounty-item p,
+    .bug-bounty-item span {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 750px) {
+
+    .bug-bounty-item,
+    .header-div {
+        max-width: 100%;
+        margin-top: 15px;
+        padding: 12px;
+    }
+
+    .bug-bounty-item h1 {
+        font-size: 20px;
+    }
+
+    .bug-bounty-item p,
+    .bug-bounty-item span {
+        font-size: 13px;
+    }
+}

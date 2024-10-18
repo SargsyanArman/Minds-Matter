@@ -1,0 +1,11 @@
+.communications-info {
+    display: flex;
+    margin: 22px 0 10px 0;
+    gap: 10px;
+}
+
+@media (max-width: 500px) {
+    .communications-info {
+        flex-direction: column;
+    }
+}

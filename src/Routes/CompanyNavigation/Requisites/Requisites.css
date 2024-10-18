@@ -1,0 +1,53 @@
+.info-req {
+    max-width: 952px;
+    height: auto;
+    border-radius: 20px;
+    padding: 28px 40px 40px;
+    margin-bottom: 30px;
+    line-height: 32px;
+}
+
+.info-req tr td {
+    width: 50%;
+}
+
+.info-req tr {
+    display: flex;
+    margin-bottom: 7px;
+}
+
+.req-main {
+    padding: 32px;
+}
+
+
+@media (max-width: 750px) {
+
+    .info-req {
+        height: auto;
+        margin-bottom: 15px;
+        padding: 10px;
+    }
+
+    .info-req h3 {
+        font-size: 22px;
+    }
+
+    .info-req tr {
+        flex-direction: column;
+        margin-bottom: 17px;
+        width: 100%;
+    }
+
+    .info-req tr td {
+        width: 100%;
+    }
+
+    .info-req tr td p {
+        font-size: 14px;
+    }
+
+    .req-main {
+        padding: 0;
+    }
+}

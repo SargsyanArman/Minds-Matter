@@ -1,0 +1,4 @@
+const CONTAINER_BG = "#575757";
+const BOX_BG = "#FFFFFF";
+const TEXT_COLOR = "#9C9C9C";
+export { BOX_BG, CONTAINER_BG, TEXT_COLOR };

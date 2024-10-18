@@ -1,0 +1,45 @@
+.company-nav {
+    padding: 24px 40px 48px;
+}
+
+.company-nav nav {
+    background-color: #f6f6f9;
+}
+
+.company-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.company-nav li {
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+.company-nav a {
+    color: #242424;
+    font-size: 1.25rem;
+    line-height: 22px;
+    font-weight: 400;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.company-nav a:hover,
+.company-nav .active a {
+    color: #a73afd;
+}
+
+.company-nav .active {
+    background-color: #f6f6f9;
+}
