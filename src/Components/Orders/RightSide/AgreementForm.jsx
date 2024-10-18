@@ -7,6 +7,7 @@ import {
   Box,
 } from "@mui/material";
 import { LangContext } from "../../../Contexts/LangContext";
+import { AGREEMENT_CHECKBOX_STYLES } from "../../../Constants/OrderPageConstants";
 
 const AgreementForm = () => {
   const [checked, setChecked] = useState({
@@ -32,17 +33,7 @@ const AgreementForm = () => {
               checked={checked.agreement1}
               onChange={handleChange}
               name="agreement1"
-              sx={{
-                "& .MuiSvgIcon-root": {
-                  borderRadius: "4px",
-                  color: "rgba(0, 0, 0, 0.54)",
-                },
-                "&.Mui-checked": {
-                  "& .MuiSvgIcon-root": {
-                    backgroundColor: "transparent",
-                  },
-                },
-              }}
+              sx={AGREEMENT_CHECKBOX_STYLES}
             />
           }
           label={
@@ -57,17 +48,7 @@ const AgreementForm = () => {
               checked={checked.agreement2}
               onChange={handleChange}
               name="agreement2"
-              sx={{
-                "& .MuiSvgIcon-root": {
-                  borderRadius: "4px",
-                  color: "rgba(0, 0, 0, 0.54)",
-                },
-                "&.Mui-checked": {
-                  "& .MuiSvgIcon-root": {
-                    backgroundColor: "transparent",
-                  },
-                },
-              }}
+              sx={AGREEMENT_CHECKBOX_STYLES}
             />
           }
           label={

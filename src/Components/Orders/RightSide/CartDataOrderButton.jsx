@@ -4,6 +4,8 @@ import { useContext, useState } from "react";
 import { LangContext } from "../../../Contexts/LangContext";
 import { CurrencyContext } from "../../../Contexts/CurrencyContext";
 import { useSelector } from "react-redux";
+import { INFO_P_STYLES, ORDER_BUTTON_STYLES } from "../../../Constants/OrderPageConstants";
+import { ERROR_STYLES } from "../../../Constants/GlobalConstants";
 
 const CartData = ({ onOrder, selectedQuantity, selectedPrice }) => {
   const { emailVerified } = useSelector((state) => state.user);
@@ -26,20 +28,14 @@ const CartData = ({ onOrder, selectedQuantity, selectedPrice }) => {
         <Button
           variant="contained"
           onClick={handleOrderClick}
-          sx={{
-            width: "100%",
-            height: "60px",
-            backgroundColor: "#8E34E9",
-            color: "#fff",
-            borderRadius: "8px",
-          }}
+          sx={ORDER_BUTTON_STYLES}
         >
           {t(`${prefix}.order`)}
         </Button>
       </Link>
       {(orderAttempted && !emailVerified) && (
-        <p style={{ color: 'red', marginTop: '10px' }}>
-          Please verify <span style={{ borderBottom: '1px dotted red' }}>Your Email</span>
+        <p style={INFO_P_STYLES}>
+          Please verify <span style={ERROR_STYLES}>Your Email</span>
         </p>
       )}
     </Box>

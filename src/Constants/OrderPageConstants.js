@@ -127,6 +127,39 @@ const COUNTER_BUTTON_STYLES = {
     cursor: 'pointer'
 }
 
+const AGREEMENT_CHECKBOX_STYLES = {
+    "& .MuiSvgIcon-root": {
+        borderRadius: "4px",
+        color: "rgba(0, 0, 0, 0.54)",
+    },
+    "&.Mui-checked": {
+        "& .MuiSvgIcon-root": {
+            backgroundColor: "transparent",
+        },
+    },
+}
+
+const ORDER_BUTTON_STYLES = {
+    width: "100%",
+    height: "60px",
+    backgroundColor: "#8E34E9",
+    color: "#fff",
+    borderRadius: "8px",
+}
+
+const INFO_P_STYLES = {
+    color: 'red',
+    marginTop: '10px'
+}
+
+const RIGHT_SIDE_BOX = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    gap: '15px',
+    width: "100%",
+}
+
 export {
     BOX_BG,
     CONTAINER_BG,
@@ -147,4 +180,8 @@ export {
     ORDER_FAV_BORDER_COLOR,
     QUANTITY_STYLES,
     COUNTER_BUTTON_STYLES,
+    AGREEMENT_CHECKBOX_STYLES,
+    ORDER_BUTTON_STYLES,
+    INFO_P_STYLES,
+    RIGHT_SIDE_BOX,
 };
