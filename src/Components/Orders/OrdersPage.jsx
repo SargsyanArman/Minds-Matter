@@ -13,6 +13,7 @@ import { CurrencyContext } from "../../Contexts/CurrencyContext";
 import BoxMui from "../Shared/BoxMui";
 import BoxMuiSecond from "../Shared/BoxMuiSecound";
 import { useMediaQuery } from "@mui/material";
+import { ORDERSPAGE_BOX_STYLES, ORDERSPAGE_BOX_STYLES_SECOND, ORDERSPAGE_BOX_STYLES_THIRD, TEXT_VERTICAL_STYLES } from "../../Constants/OrderPageConstants";
 
 const OrdersPageContent = () => {
   const { cartItems } = useContext(CartContext);
@@ -21,7 +22,6 @@ const OrdersPageContent = () => {
   const { t } = useContext(LangContext);
   const prefix = "Orders page";
   const isDesktop = useMediaQuery('(min-width: 960px)');
-  const isDesktopSm = useMediaQuery('(min-width: 700px)');
 
   const selectedQuantity = cartItems
     .filter((item) => selectedItems.includes(item.id))
@@ -38,95 +38,31 @@ const OrdersPageContent = () => {
   const finalPrice = typeof exchangedPrice === "number" ? exchangedPrice : 0;
 
   return (
-    <BoxMuiSecond
-      display="flex"
-      flexDirection={isDesktop ? 'row' : 'column'}
-      alignItems="center"
-      gap={2}
-      p={isDesktop ? 2 : 0}
-      sx={{
-        width: "100%",
-        height: isDesktop ? "100vh" : "auto",
-        backgroundColor: "backgroundColor",
-        justifyContent: "space-between",
-        overflowY: 'auto',
-        "&::-webkit-scrollbar": {
-          width: "8px",
-        },
-        "&::-webkit-scrollbar-track": {
-          backgroundColor: "#f1f1f1",
-        },
-        "&::-webkit-scrollbar-thumb": {
-          backgroundColor: "#888",
-          borderRadius: "10px",
-        },
-        "&::-webkit-scrollbar-thumb:hover": {
-          backgroundColor: "#555",
-        },
-      }}
+    <BoxMuiSecond display="flex" flexDirection={isDesktop ? 'row' : 'column'} alignItems="center" gap={2} p={isDesktop ? 2 : 0}
+      sx={{ height: isDesktop ? "100vh" : "auto", ...ORDERSPAGE_BOX_STYLES }}
     >
-      <BoxMui
-        my={isDesktop ? 4 : 0}
-        display="flex"
-        gap={4}
-        p={isDesktop ? 4 : 1}
-        sx={{
-          width: isDesktop ? "70%" : "100%",
-          height: isDesktop ? "90%" : "auto",
-          backgroundColor: "backgroundColor",
-          border: "none",
-          boxShadow: 2,
-          borderRadius: "10px",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-        }}
+      <BoxMui my={isDesktop ? 4 : 0} display="flex" gap={4} p={isDesktop ? 4 : 1}
+        sx={{ width: isDesktop ? "70%" : "100%", height: isDesktop ? "90%" : "auto", ...ORDERSPAGE_BOX_STYLES_SECOND }}
       >
         <Typography variant="h6">
           {t(`${prefix}.heading`)}
-          <Typography
-            component="span"
-            variant="body2"
-            sx={{ verticalAlign: "middle" }}
-          >
+          <Typography component="span" variant="body2" sx={TEXT_VERTICAL_STYLES} >
             {selectedQuantity} {t(`${prefix}.selected`)} ({selectedPrice.toFixed(2)} {curr.currSymbol})
           </Typography>
         </Typography>
 
-        <Box display="flex" sx={{ justifyContent: "space-between", }}>
+        <Box>
           {cartItems.length > 0 && (
-            <MyCheckbox
-              selectedItems={selectedItems}
-              setSelectedItems={setSelectedItems}
-              cartItems={cartItems}
-            />
+            <MyCheckbox selectedItems={selectedItems} setSelectedItems={setSelectedItems} cartItems={cartItems} />
           )}
         </Box>
-        <OrderedProduct
-          selectedItems={selectedItems}
-          setSelectedItems={setSelectedItems}
-        />
+        <OrderedProduct selectedItems={selectedItems} setSelectedItems={setSelectedItems} />
       </BoxMui>
 
-      <BoxMui
-        my={4}
-        display="flex"
-        alignItems="center"
-        gap={4}
-        p={4}
-        sx={{
-          width: isDesktop ? "28%" : "100%",
-          height: isDesktop ? "90%" : "auto",
-          backgroundColor: "backgroundColor",
-          border: "none",
-          boxShadow: 2,
-          borderRadius: "10px",
-          flexDirection: "column",
-        }}
+      <BoxMui my={4} display="flex" alignItems="center" gap={4} p={4}
+        sx={{ width: isDesktop ? "28%" : "100%", height: isDesktop ? "90%" : "auto", ...ORDERSPAGE_BOX_STYLES_THIRD }}
       >
-        <RightSideMain
-          totalQuantity={selectedQuantity}
-          totalPrice={selectedPrice}
-        />
+        <RightSideMain totalQuantity={selectedQuantity} totalPrice={selectedPrice} />
       </BoxMui>
     </BoxMuiSecond>
   );

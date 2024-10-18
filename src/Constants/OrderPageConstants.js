@@ -182,6 +182,48 @@ const TOGGLE_CLASSES_STYLES = {
     selected: { backgroundColor: 'red !important' }
 }
 
+const ORDERSPAGE_BOX_STYLES = {
+    width: "100%",
+    backgroundColor: "backgroundColor",
+    justifyContent: "space-between",
+    overflowY: 'auto',
+    "&::-webkit-scrollbar": {
+        width: "8px",
+    },
+    "&::-webkit-scrollbar-track": {
+        backgroundColor: "#f1f1f1",
+    },
+    "&::-webkit-scrollbar-thumb": {
+        backgroundColor: "#888",
+        borderRadius: "10px",
+    },
+    "&::-webkit-scrollbar-thumb:hover": {
+        backgroundColor: "#555",
+    },
+}
+
+const ORDERSPAGE_BOX_STYLES_SECOND = {
+    backgroundColor: "backgroundColor",
+    border: "none",
+    boxShadow: 2,
+    borderRadius: "10px",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+}
+
+
+const TEXT_VERTICAL_STYLES = {
+    verticalAlign: "middle"
+}
+
+const ORDERSPAGE_BOX_STYLES_THIRD = {
+    backgroundColor: "backgroundColor",
+    border: "none",
+    boxShadow: 2,
+    borderRadius: "10px",
+    flexDirection: "column",
+}
+
 export {
     BOX_BG,
     CONTAINER_BG,
@@ -209,5 +251,9 @@ export {
     TEXT_BOX_STYLES,
     TEXT_ICON_STYLES,
     TOGGLE_BUTTONS_STYLES,
-    TOGGLE_CLASSES_STYLES
+    TOGGLE_CLASSES_STYLES,
+    ORDERSPAGE_BOX_STYLES,
+    ORDERSPAGE_BOX_STYLES_SECOND,
+    TEXT_VERTICAL_STYLES,
+    ORDERSPAGE_BOX_STYLES_THIRD
 };
