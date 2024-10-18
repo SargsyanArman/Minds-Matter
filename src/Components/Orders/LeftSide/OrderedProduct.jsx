@@ -9,7 +9,7 @@ import { CurrencyContext } from "../../../Contexts/CurrencyContext";
 import ThemeModes from "../../Shared/ThemeModes";
 import "./ResponsiveLeftSide.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite } from "../../../Store/Slices/FavoriteSlices";
+import { addFavorite, removeFavorite, setFavorites } from "../../../Store/Slices/FavoriteSlices";
 import FavoriteSharpIcon from "@mui/icons-material/FavoriteSharp";
 import { useAuth } from "../../../Hooks/use-auth";
 import { db } from "../../../fireBase";
@@ -90,12 +90,14 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 			{userOrders.map((item) => {
 				const id = item.id;
 				const isInFavorites = favorites.some((i) => i.id === id);
+
 				const imgSrc = item.imgSrc;
 				const currency = item.currency;
 				const seller = item.seller;
 				const category = item.category;
 				const rating = item.rating;
 				const rNum = item.rNum;
+
 				const quantity = item.quantity || 1;
 				const price = safeParseFloat(item.price);
 				const handleFavoriteClick = () => {
@@ -125,7 +127,9 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 					: null;
 
 				return (
-					<Box key={item.id} sx={{ flexDirection: isDesktopSm ? "row" : "column", ...ORDER_BOX_STYLES }}>
+					<Box key={item.id} sx={{
+						flexDirection: isDesktopSm ? "row" : "column", ...ORDER_BOX_STYLES
+					}}>
 						<Checkbox checked={selectedItems.includes(item.id)} onChange={() => handleCheckboxChange(item.id)} sx={CHECKBOX_STYLES} />
 						<Box sx={ORDER_BOX_STYLES_SECOND}>
 							<CardMedia
@@ -142,7 +146,10 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 										<Typography variant="body2" color="textSecondary" noWrap style={TEXT_STYLES} > {item.category} </Typography>
 									</Tooltip>
 
-									<Typography variant="body2" color="textSecondary" sx={TEXT_RESPONSIVE_STYLES}>
+									<Typography variant="body2"
+										color="textSecondary"
+										sx={TEXT_RESPONSIVE_STYLES}
+									>
 										{t(`${prefix}.return`)}
 										<span style={ORDER_SPAN_STYLES}>
 											{exchange(5, "USD")}{" "}
@@ -154,13 +161,8 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 						</Box>
 						<Box sx={ORDER_BOX_STYLES_THIRD} >
 							<QuantitySelector quantity={quantity} onIncrement={() => handleIncrement(item.id)} onDecrement={() => handleDecrement(item.id)} />
-							<Box
-								sx={ORDER_BOX_STYLES_FOURTH}
-							>
-								<Typography className="flex-col">
-									<ThemeModes className="purpleP" tagName="purpleP" >
-										{t(`${prefix}.special`)}
-									</ThemeModes>
+							<Box sx={ORDER_BOX_STYLES_FOURTH} >
+								<Typography className="flex-col"> <ThemeModes className="purpleP" tagName="purpleP" > {t(`${prefix}.special`)} </ThemeModes>
 									{discountedPrice !== null ? (
 										<>
 											<ThemeModes className="purpleP-money" tagName="purpleP" >
@@ -197,11 +199,12 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 										</ThemeModes>
 									)}
 								</Typography>
-								<button onClick={handleFavoriteClick} style={ORDER_BUTTON_FAVORITE} >
-									{isInFavorites ? (
-										<FavoriteSharpIcon sx={FAVORITE_STYLES} />
-									) : (
-										<FavoriteBorderIcon fontSize="large" style={ORDER_FAV_BORDER_COLOR} />
+								<button
+									onClick={handleFavoriteClick}
+									style={ORDER_BUTTON_FAVORITE}
+								>
+									{isInFavorites ? (<FavoriteSharpIcon sx={FAVORITE_STYLES} />
+									) : (<FavoriteBorderIcon fontSize="large" style={ORDER_FAV_BORDER_COLOR} />
 									)}
 								</button>
 								<DeleteOutlineIcon fontSize="large" sx={ORDER_DELETE_STYLES} onClick={() => handleDelete(item.id)} />
