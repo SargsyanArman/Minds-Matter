@@ -1,1 +1,1 @@
-export const dark = 'dark'
+export const DARK = 'dark'

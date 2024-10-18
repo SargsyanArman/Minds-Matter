@@ -17,6 +17,7 @@ import { removeUser } from '../../Store/Slices/UserSlices';
 import { StyledLink, MENU_STYLE } from '../../Constants/MenuConstants';
 import { LangContext } from '../../Contexts/LangContext';
 import { fetchUser } from '../../Constants/MenuConstants';
+import { DARK } from '../../Constants/GlobalConstants';
 
 export const AccMenu = () => {
   const navigate = useNavigate();
@@ -76,13 +77,13 @@ export const AccMenu = () => {
       {menuItems.map((item, index) => (
         item.to ? (
           <StyledLink to={item.to} onClick={item?.onClick} key={index}>
-            <MenuItem sx={{ backgroundColor: mode === 'dark' ? 'black' : 'white' }} onClick={handleMenuClose}>
-              <ListItemIcon sx={{ color: mode === 'dark' ? 'red' : 'black' }}>{item.icon}</ListItemIcon>
-                <Tooltip title={item.text}>
-                  <Typography sx={{ color: mode === 'dark' ? 'gray' : 'black' }} className='accMenuItem'>
-                    {item.text}
-                  </Typography>
-                </Tooltip>
+            <MenuItem sx={{ backgroundColor: mode === DARK ? 'black' : 'white' }} onClick={handleMenuClose}>
+              <ListItemIcon sx={{ color: mode === DARK ? 'red' : 'black' }}>{item.icon}</ListItemIcon>
+              <Tooltip title={item.text}>
+                <Typography sx={{ color: mode === DARK ? 'gray' : 'black' }} className='accMenuItem'>
+                  {item.text}
+                </Typography>
+              </Tooltip>
             </MenuItem>
           </StyledLink>
         ) : (
