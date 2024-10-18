@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { useSelector } from "react-redux";
+import { DARK } from "../../Constants/GlobalConstants";
 
 const ThemeModes = forwardRef(function ThemeModes({
   children,
@@ -10,65 +11,65 @@ const ThemeModes = forwardRef(function ThemeModes({
   const mode = useSelector((state) => state.mode.mode);
 
   const divAndTextMode = {
-    color: mode === "dark" ? "white" : "black",
+    color: mode === DARK ? "white" : "black",
   };
 
   const divSimple = {
-    color: mode === "dark" ? "white" : "black",
-    backgroundColor: mode === "dark" ? "black" : "white",
+    color: mode === DARK ? "white" : "black",
+    backgroundColor: mode === DARK ? "black" : "white",
   };
 
   const grayDiv = {
-    backgroundColor: mode === "dark" ? "#7A7A7A" : "#F6F6F7",
-    color: mode === "dark" ? "white" : "black",
+    backgroundColor: mode === DARK ? "#7A7A7A" : "#F6F6F7",
+    color: mode === DARK ? "white" : "black",
   };
 
   const grayLi = {
-    backgroundColor: mode === "dark" ? "#7A7A7A" : "#F6F6F7",
-    color: mode === "dark" ? "white" : "black",
+    backgroundColor: mode === DARK ? "#7A7A7A" : "#F6F6F7",
+    color: mode === DARK ? "white" : "black",
   };
 
   const grayToGray = {
-    backgroundColor: mode === "dark" ? "gray" : "#F6F6F7",
-    color: mode === "dark" ? "white" : "black",
+    backgroundColor: mode === DARK ? "gray" : "#F6F6F7",
+    color: mode === DARK ? "white" : "black",
   }
 
   const divBgGradient = {
     background:
-      mode === "dark"
+      mode === DARK
         ? "linear-gradient(93deg, rgba(242, 0, 0, 0.3) 16.08%, rgba(233, 0, 0, 0) 71.61%), #ff7f77"
         : "linear-gradient(93deg, rgba(255, 255, 255, 0.3) 16.08%, rgba(255, 255, 255, 0) 71.61%), #f2e2ff",
   };
   const divBgGradient2 = {
     background:
-      mode === "dark"
+      mode === DARK
         ? "linear-gradient(to right, #9d0000, #d40000)"
         : "linear-gradient(150deg, #dd37d0, #8c1ff2)"
   };
 
   const textRedBlack = {
-    color: mode === "dark" ? "red" : "black",
+    color: mode === DARK ? "red" : "black",
   };
 
   const textPurpleRed = {
-    color: mode === "dark" ? "red" : "#A73AFD",
+    color: mode === DARK ? "red" : "#A73AFD",
   };
 
   const priceMode = {
-    color: mode === "dark" ? "#c30000" : "#a73afd",
+    color: mode === DARK ? "#c30000" : "#a73afd",
   };
 
   const footerMode = {
-    backgroundColor: mode === "dark" ? "#3a3a3a" : "rgba(211, 212, 221, 0.24)",
+    backgroundColor: mode === DARK ? "#3a3a3a" : "rgba(211, 212, 221, 0.24)",
   };
 
   const h4Mode = {
-    color: mode === "dark" ? "#e90000" : "#242424",
+    color: mode === DARK ? "#e90000" : "#242424",
   };
 
   const simpleButton = {
-    color: mode === "dark" ? "white" : "black",
-    borderBottomColor: mode === "dark" ? "white" : "black",
+    color: mode === DARK ? "white" : "black",
+    borderBottomColor: mode === DARK ? "white" : "black",
     cursor: "pointer",
     borderRight: "none",
     borderTop: "none",
@@ -79,25 +80,25 @@ const ThemeModes = forwardRef(function ThemeModes({
   };
 
   const grayMode = {
-    color: mode === "dark" ? "rgb(220,220,220)" : "#868695",
+    color: mode === DARK ? "rgb(220,220,220)" : "#868695",
     lineHeight: "22px",
     fontWeight: 400,
   };
 
   const spanMode = {
-    color: mode === "dark" ? "white" : "black",
+    color: mode === DARK ? "white" : "black",
     fontSize: "18px",
   };
 
   const buttonMode = {
-    backgroundColor: mode === "dark" ? "#c30000" : "#a73afd",
+    backgroundColor: mode === DARK ? "#c30000" : "#a73afd",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   };
 
   const buttonModeDeliveries = {
-    backgroundColor: mode === "dark" ? "#c30000" : "#a73afd",
+    backgroundColor: mode === DARK ? "#c30000" : "#a73afd",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -129,10 +130,10 @@ const ThemeModes = forwardRef(function ThemeModes({
           {...rest}
           style={{ ...simpleButton, ...propsStyle }}
           onMouseEnter={(e) =>
-            (e.currentTarget.style.color = mode === "dark" ? "#a2a2a2" : "red")
+            (e.currentTarget.style.color = mode === DARK ? "#a2a2a2" : "red")
           }
           onMouseLeave={(e) =>
-            (e.currentTarget.style.color = mode === "dark" ? "white" : "black")
+            (e.currentTarget.style.color = mode === DARK ? "white" : "black")
           }
         >
           {children}
@@ -146,11 +147,11 @@ const ThemeModes = forwardRef(function ThemeModes({
           style={{ ...buttonModeDeliveries, ...propsStyle }}
           onMouseEnter={(e) =>
           (e.currentTarget.style.backgroundColor =
-            mode === "dark" ? "#e60000" : "#9c34eb")
+            mode === DARK ? "#e60000" : "#9c34eb")
           }
           onMouseLeave={(e) =>
           (e.currentTarget.style.backgroundColor =
-            mode === "dark" ? "#c30000" : "#a73afd")
+            mode === DARK ? "#c30000" : "#a73afd")
           }
         >
           {children}
@@ -163,11 +164,11 @@ const ThemeModes = forwardRef(function ThemeModes({
           style={{ ...buttonMode, ...propsStyle }}
           onMouseEnter={(e) =>
           (e.currentTarget.style.backgroundColor =
-            mode === "dark" ? "#e60000" : "#9c34eb")
+            mode === DARK ? "#e60000" : "#9c34eb")
           }
           onMouseLeave={(e) =>
           (e.currentTarget.style.backgroundColor =
-            mode === "dark" ? "#c30000" : "#a73afd")
+            mode === DARK ? "#c30000" : "#a73afd")
           }
         >
           {children}
@@ -180,11 +181,11 @@ const ThemeModes = forwardRef(function ThemeModes({
           style={{ ...propsStyle }}
           onMouseEnter={(e) =>
           (e.currentTarget.style.backgroundColor =
-            mode === "dark" ? "#e60000" : "#9c34ebee")
+            mode === DARK ? "#e60000" : "#9c34ebee")
           }
           onMouseLeave={(e) =>
           (e.currentTarget.style.backgroundColor =
-            mode === "dark" ? null : null)
+            mode === DARK ? null : null)
           }
         >
           {children}

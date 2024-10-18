@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import { DARK } from "../../Constants/GlobalConstants";
 
 const InputMuiShared = (props, { children, ...rest }) => {
   const mode = useSelector((state) => state.mode.mode);
@@ -11,7 +12,7 @@ const InputMuiShared = (props, { children, ...rest }) => {
       required
       fullWidth
       {...rest}
-      style={{ backgroundColor: mode === "dark" ? "white" : null }}
+      style={{ backgroundColor: mode === DARK ? "white" : null }}
       {...props}
     >
       {children}

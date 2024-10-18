@@ -1,13 +1,14 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import { DARK } from "../../Constants/GlobalConstants";
 
 const BoxRoundMui = ({ children, style: propsStyle = {}, ...rest }) => {
     const mode = useSelector((state) => state.mode.mode);
 
     const box = {
-        backgroundColor: mode === 'dark' ? 'black' : 'white',
-        color: mode === 'dark' ? 'white' : 'black'
+        backgroundColor: mode === DARK ? 'black' : 'white',
+        color: mode === DARK ? 'white' : 'black'
     }
 
     return (
