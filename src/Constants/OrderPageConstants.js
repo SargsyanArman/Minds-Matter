@@ -152,12 +152,24 @@ const INFO_P_STYLES = {
     marginTop: '10px'
 }
 
-const RIGHT_SIDE_BOX = {
+const RIGHT_SIDE_BOX_STYLES = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
     gap: '15px',
     width: "100%",
+}
+
+const TEXT_BOX_STYLES = {
+    display: 'flex',
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+}
+
+const TEXT_ICON_STYLES = {
+    marginLeft: 6,
+    color: "rgba(180, 180, 180, 0.7)"
 }
 
 export {
@@ -183,5 +195,7 @@ export {
     AGREEMENT_CHECKBOX_STYLES,
     ORDER_BUTTON_STYLES,
     INFO_P_STYLES,
-    RIGHT_SIDE_BOX,
+    RIGHT_SIDE_BOX_STYLES,
+    TEXT_BOX_STYLES,
+    TEXT_ICON_STYLES,
 };

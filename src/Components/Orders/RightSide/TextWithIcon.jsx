@@ -1,20 +1,14 @@
 import { Box, Typography } from "@mui/material";
+import { TEXT_BOX_STYLES, TEXT_ICON_STYLES } from "../../../Constants/OrderPageConstants";
 
 const TextWithIcon = ({ text, IconComponent, onIconClick }) => {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: "space-between",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
+    <Box sx={TEXT_BOX_STYLES}>
       <Typography variant="body1">{text}</Typography>
       {IconComponent && (
         <IconComponent
           onClick={onIconClick}
-          sx={{ marginLeft: 6, color: "rgba(180, 180, 180, 0.7)" }}
+          sx={TEXT_ICON_STYLES}
         />
       )}
     </Box>

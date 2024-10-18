@@ -3,7 +3,7 @@ import TextWithIcon from "./TextWithIcon";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
 import PushPinIcon from "@mui/icons-material/PushPin";
-import { CONTAINER_BG, RIGHT_SIDE_BOX } from "../../../Constants/OrderPageConstants";
+import { CONTAINER_BG, RIGHT_SIDE_BOX_STYLES } from "../../../Constants/OrderPageConstants";
 import { LangContext } from "../../../Contexts/LangContext";
 import ToggleButtons from "./ToggleButtons";
 
@@ -21,7 +21,7 @@ const RightSideMain = ({ totalQuantity, totalPrice }) => {
   const isLargeScreen = useMediaQuery('(min-width:960px)');
 
   return (
-    <Box sx={RIGHT_SIDE_BOX}>
+    <Box sx={RIGHT_SIDE_BOX_STYLES}>
       <Box >
         <TextWithIcon
           text={<Typography variant="body3" fontWeight="bold">{t(`${prefix}.location`)}</Typography>}
