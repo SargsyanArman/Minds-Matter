@@ -1,30 +1,21 @@
 import { useState, useEffect, useContext } from "react";
-import {
-	Box,
-	Typography,
-	CardMedia,
-	Checkbox,
-	Tooltip,
-	useMediaQuery,
-} from "@mui/material";
+import { Box, Typography, CardMedia, Checkbox, Tooltip, useMediaQuery } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import QuantitySelector from "./QuantitySelector ";
+import QuantitySelector from "./QuantitySelector";
 import { CartContext } from "../../../Contexts/CartContext";
 import { LangContext } from "../../../Contexts/LangContext";
 import { CurrencyContext } from "../../../Contexts/CurrencyContext";
 import ThemeModes from "../../Shared/ThemeModes";
 import "./ResponsiveLeftSide.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-	addFavorite,
-	removeFavorite,
-	setFavorites,
-} from "../../../Store/Slices/FavoriteSlices";
+import { addFavorite, removeFavorite } from "../../../Store/Slices/FavoriteSlices";
 import FavoriteSharpIcon from "@mui/icons-material/FavoriteSharp";
 import { useAuth } from "../../../Hooks/use-auth";
 import { db } from "../../../fireBase";
 import { doc, getDoc } from "firebase/firestore";
+import { CHECKBOX_STYLES, MAX_WIDTH, ORDER_BOX_STYLES, ORDER_BOX_STYLES_FOURTH, ORDER_BOX_STYLES_SECOND, ORDER_BOX_STYLES_THIRD, ORDER_BUTTON_FAVORITE, ORDER_DELETE_STYLES, ORDER_FAV_BORDER_COLOR, ORDER_SPAN_STYLES, ORDER_STYLES, ORDER_TEXT_LINE, TEXT_RESPONSIVE_STYLES, TEXT_STYLES } from "../../../Constants/OrderPageConstants";
+import { FAVORITE_STYLES } from "../../../Constants/MenuConstants";
 
 export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 	const isDesktopSm = useMediaQuery("(min-width: 700px)");
@@ -95,28 +86,16 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 		return isNaN(parsed) ? 0 : parsed;
 	};
 	return (
-		<Box
-			sx={{
-				m: "4px",
-				display: "flex",
-				flexDirection: "column",
-				justifyContent: "space-between",
-				gap: "6px",
-				maxHeight: "500px",
-				overflowY: "auto",
-			}}
-		>
+		<Box sx={ORDER_STYLES}>
 			{userOrders.map((item) => {
 				const id = item.id;
 				const isInFavorites = favorites.some((i) => i.id === id);
-
 				const imgSrc = item.imgSrc;
 				const currency = item.currency;
 				const seller = item.seller;
 				const category = item.category;
 				const rating = item.rating;
 				const rNum = item.rNum;
-
 				const quantity = item.quantity || 1;
 				const price = safeParseFloat(item.price);
 				const handleFavoriteClick = () => {
@@ -146,80 +125,26 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 					: null;
 
 				return (
-					<Box
-						key={item.id}
-						sx={{
-							display: "flex",
-							flexDirection: isDesktopSm ? "row" : "column",
-							alignItems: "start",
-							gap: 2,
-							position: "relative",
-							paddingBottom: 2,
-						}}
-					>
-						<Checkbox
-							checked={selectedItems.includes(item.id)}
-							onChange={() => handleCheckboxChange(item.id)}
-							sx={{
-								position: "absolute",
-								marginLeft: "230px",
-								padding: "0",
-							}}
-						/>
-						<Box sx={{ display: "flex", gap: 2 }}>
+					<Box key={item.id} sx={{ flexDirection: isDesktopSm ? "row" : "column", ...ORDER_BOX_STYLES }}>
+						<Checkbox checked={selectedItems.includes(item.id)} onChange={() => handleCheckboxChange(item.id)} sx={CHECKBOX_STYLES} />
+						<Box sx={ORDER_BOX_STYLES_SECOND}>
 							<CardMedia
 								component="img"
-								sx={{
-									width: isDesktopXs2 ? 100 : 60,
-									height: isDesktopXs2 ? 100 : 60,
-									borderRadius: 1,
-								}}
+								sx={{ width: isDesktopXs2 ? 100 : 60, height: isDesktopXs2 ? 100 : 60, borderRadius: 1, }}
 								image={item.imgSrc}
 								alt="Item Image"
 							/>
-							<Box style={{ maxWidth: "250px" }}>
-								<span>
-									<Typography variant="body1">
-										{item.seller}
-									</Typography>
-									<Tooltip title={item.category} arrow>
-										<Typography
-											variant="body2"
-											color="textSecondary"
-											noWrap
-											style={{
-												width: "200px",
 
-												overflow: "hidden",
-												textOverflow: "ellipsis",
-											}}
-										>
-											{item.category}
-										</Typography>
+							<Box style={MAX_WIDTH}>
+								<span>
+									<Typography variant="body1"> {item.seller} </Typography>
+									<Tooltip title={item.category} arrow>
+										<Typography variant="body2" color="textSecondary" noWrap style={TEXT_STYLES} > {item.category} </Typography>
 									</Tooltip>
 
-									<Typography
-										variant="body2"
-										color="textSecondary"
-										sx={{
-											whiteSpace: {
-												xs: "normal",
-												sm: "nowrap",
-											},
-										}}
-									>
+									<Typography variant="body2" color="textSecondary" sx={TEXT_RESPONSIVE_STYLES}>
 										{t(`${prefix}.return`)}
-										<span
-											style={{
-												textDecoration: "underline",
-												textDecorationStyle: "dotted",
-												textDecorationColor:
-													"rgb(34, 34, 34)",
-												whiteSpace: "normal",
-												display: "inline-block",
-												wordBreak: "break-word",
-											}}
-										>
+										<span style={ORDER_SPAN_STYLES}>
 											{exchange(5, "USD")}{" "}
 											{curr.currSymbol}
 										</span>
@@ -227,52 +152,18 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 								</span>
 							</Box>
 						</Box>
-						<Box
-							sx={{
-								marginLeft: 2,
-								marginRight: 2,
-								display: "flex",
-								flexDirection: {
-									xs: "column",
-									sm: "row",
-								},
-								flex: 1,
-								justifyContent: "space-between",
-							}}
-						>
-							<QuantitySelector
-								quantity={quantity}
-								onIncrement={() => handleIncrement(item.id)}
-								onDecrement={() => handleDecrement(item.id)}
-							/>
+						<Box sx={ORDER_BOX_STYLES_THIRD} >
+							<QuantitySelector quantity={quantity} onIncrement={() => handleIncrement(item.id)} onDecrement={() => handleDecrement(item.id)} />
 							<Box
-								sx={{
-									position: "relative",
-									textAlign: {
-										xs: "left",
-										sm: "left",
-										md: "right",
-									},
-								}}
+								sx={ORDER_BOX_STYLES_FOURTH}
 							>
-								<Typography
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-									}}
-								>
-									<ThemeModes
-										className="purpleP"
-										tagName="purpleP"
-									>
+								<Typography className="flex-col">
+									<ThemeModes className="purpleP" tagName="purpleP" >
 										{t(`${prefix}.special`)}
 									</ThemeModes>
 									{discountedPrice !== null ? (
 										<>
-											<ThemeModes
-												className="purpleP-money"
-												tagName="purpleP"
-											>
+											<ThemeModes className="purpleP-money" tagName="purpleP" >
 												{curr.currSymbol}{" "}
 												{
 													+(
@@ -284,14 +175,7 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 												}
 												{"    "}
 											</ThemeModes>
-											<ThemeModes
-												className="purpleP-money"
-												tagName="purpleP"
-												style={{
-													textDecoration:
-														"line-through",
-												}}
-											>
+											<ThemeModes className="purpleP-money" tagName="purpleP" style={ORDER_TEXT_LINE}>
 												{curr.currSymbol}{" "}
 												{
 													+(
@@ -302,10 +186,7 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 											</ThemeModes>
 										</>
 									) : (
-										<ThemeModes
-											className="purpleP-money"
-											tagName="purpleP"
-										>
+										<ThemeModes className="purpleP-money" tagName="purpleP">
 											{curr.currSymbol}{" "}
 											{
 												+(
@@ -316,39 +197,14 @@ export default function OrderedProduct({ selectedItems, setSelectedItems }) {
 										</ThemeModes>
 									)}
 								</Typography>
-								<button
-									onClick={handleFavoriteClick}
-									style={{
-										backgroundColor: "transparent",
-										border: "none",
-									}}
-								>
+								<button onClick={handleFavoriteClick} style={ORDER_BUTTON_FAVORITE} >
 									{isInFavorites ? (
-										<FavoriteSharpIcon
-											sx={{
-												width: "35px",
-												height: "35px",
-												color: "red",
-											}}
-										/>
+										<FavoriteSharpIcon sx={FAVORITE_STYLES} />
 									) : (
-										<FavoriteBorderIcon
-											fontSize="large"
-											style={{
-												color: "rgba(240, 240, 240, 0.7)",
-											}}
-										/>
+										<FavoriteBorderIcon fontSize="large" style={ORDER_FAV_BORDER_COLOR} />
 									)}
 								</button>
-								<DeleteOutlineIcon
-									fontSize="large"
-									sx={{
-										color: "rgba(240, 240, 240, 0.7)",
-										ml: 1,
-										mt: 1,
-									}}
-									onClick={() => handleDelete(item.id)}
-								/>
+								<DeleteOutlineIcon fontSize="large" sx={ORDER_DELETE_STYLES} onClick={() => handleDelete(item.id)} />
 							</Box>
 						</Box>
 					</Box>

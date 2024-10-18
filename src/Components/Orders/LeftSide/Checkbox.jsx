@@ -1,13 +1,9 @@
 import Checkbox from "@mui/material/Checkbox";
 
 const MyCheckbox = ({ selectedItems, setSelectedItems, cartItems }) => {
-  const isAllSelected = cartItems.every((item) => selectedItems.includes(item.id));
   const handleSelectAll = () => {
-    if (selectedItems.length === cartItems.length) {
-      setSelectedItems([]);
-    } else {
-      setSelectedItems(cartItems.map((item) => item.id));
-    }
+    if (selectedItems.length === cartItems.length) setSelectedItems([]);
+    else setSelectedItems(cartItems.map((item) => item.id));
   };
 
   return (
