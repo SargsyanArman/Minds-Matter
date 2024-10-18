@@ -10,6 +10,8 @@ import ThemeModes from "../Components/Shared/ThemeModes";
 import { useSelector } from "react-redux";
 import { useContext } from "react";
 import { LangContext } from "../Contexts/LangContext";
+import { PAPER_STYLES, UNAUTHORIZED_BUTTON_STYLES, UNAUTHORIZED_STYLES } from "../Constants/HelperComponents";
+import { DARK } from "../Constants/GlobalConstants";
 
 const UnauthorizedAccess = () => {
   const mode = useSelector((state) => state.mode.mode);
@@ -17,23 +19,10 @@ const UnauthorizedAccess = () => {
   const prefix = "Unauthorized access page";
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{ backgroundColor: mode === "dark" ? "#7a7a7a" : "white", height: { sx: '50vh', sm: '100vh' } }}
-      p={2}
-    >
+    <Box sx={{ backgroundColor: mode === DARK ? "#7a7a7a" : "white", ...UNAUTHORIZED_STYLES }}>
       <Paper
         elevation={3}
-        sx={{
-          p: 4,
-          borderRadius: 2,
-          textAlign: "center",
-          maxWidth: 400,
-          backgroundColor: mode === "dark" ? "black" : "white",
-        }}
+        sx={{ backgroundColor: mode === DARK ? "black" : "white", ...PAPER_STYLES }}
       >
         <ThemeModes tagName="div">
           <Stack spacing={2}>
@@ -51,7 +40,7 @@ const UnauthorizedAccess = () => {
               variant="contained"
               color="primary"
               size="large"
-              sx={{ mt: 2, textTransform: "none" }}
+              sx={UNAUTHORIZED_BUTTON_STYLES}
             >
               {t(`${prefix}.signup`)}
             </Button>

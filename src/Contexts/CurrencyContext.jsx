@@ -17,13 +17,6 @@ export const CurrencyProvider = ({ children }) => {
     const [currMenu, setCurrMenu] = useState(null);
     const [exchangeRate, setExchangeRate] = useState(1);
 
-    // const handleCurrMenuClick = useCallback((event) => {
-    //     setCurrMenu(event.currentTarget);
-    // }, []);
-
-    // const handleCurrMenuClose = useCallback(() => {
-    //     setCurrMenu(null);
-    // }, []);
 
     const changeCurr = (newCurrName) => {
         for (const obj in CURRENCIES) {

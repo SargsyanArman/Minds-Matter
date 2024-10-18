@@ -108,9 +108,7 @@ const CartProvider = ({ children }) => {
   }, [cartItems, totalQuantity, totalPrice, updateCartItemQuantity, addCartItem, removeCartItem])
 
   return (
-    <CartContext.Provider
-      value={memoizedCartValues}
-    >
+    <CartContext.Provider value={memoizedCartValues}>
       {children}
     </CartContext.Provider>
   );
