@@ -147,6 +147,41 @@ const DIALOG_MORE_BUTTON = {
   },
 }
 
+const SLIDER_CENTRED_TEXT_STYLES = {
+  position: "absolute",
+  top: "10%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "#fff",
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  borderRadius: "5px",
+  padding: "10px",
+}
+
+const SLIDER_BOX_STYLES = {
+  width: "96%",
+  margin: "auto",
+  padding: "20px 0px 60px 0"
+}
+
+const SLIDER_BOX_SECOND_STYLES = {
+  height: { xs: '45vw', sm2: '175px' },
+  minHeight: '100px',
+  position: "relative",
+  borderRadius: "15px",
+  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+  overflow: "hidden",
+}
+
+const SLIDER_CARD_MEDIA_STYLES = {
+  height: "100%",
+  width: "100%",
+  objectFit: "cover"
+}
+
 export {
   StyledLink,
   Divider,
@@ -163,6 +198,10 @@ export {
   DIALOG_BUY_BUTTON,
   DIALOG_CART_BUTTON,
   DIALOG_MORE_BUTTON,
+  SLIDER_CENTRED_TEXT_STYLES,
+  SLIDER_BOX_STYLES,
+  SLIDER_BOX_SECOND_STYLES,
+  SLIDER_CARD_MEDIA_STYLES,
   fetchUser
 };
 

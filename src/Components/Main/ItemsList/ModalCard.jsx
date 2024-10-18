@@ -11,19 +11,7 @@ import {
   DIALOG_BUY_BUTTON, DIALOG_CART_BUTTON, DIALOG_CONTENT, DIALOG_DIV, DIALOG_ICON_BUTTON, DIALOG_IMG, DIALOG_MORE_BUTTON, DIALOG_SELLER, DIALOG_SPAN, DIALOG_STYLES,
 } from "../../../Constants/MenuConstants";
 
-const ModalCard = ({
-  handleClose,
-  open,
-  imgSrc,
-  price,
-  currency,
-  seller,
-  category,
-  rating,
-  rNum,
-  itemURL,
-  handleAddToCart,
-}) => {
+const ModalCard = ({ handleClose, open, imgSrc, price, currency, seller, category, rating, rNum, itemURL, handleAddToCart }) => {
   const { t } = React.useContext(LangContext);
   const prefix = "Card";
 
