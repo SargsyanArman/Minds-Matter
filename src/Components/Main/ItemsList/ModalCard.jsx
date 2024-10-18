@@ -12,6 +12,8 @@ import {
 } from "../../../Constants/MenuConstants";
 
 const ModalCard = ({ handleClose, open, imgSrc, price, currency, seller, category, rating, rNum, itemURL, handleAddToCart }) => {
+  const mode = useSelector((state) => state.mode.mode);
+
   const { t } = React.useContext(LangContext);
   const prefix = "Card";
 
@@ -45,7 +47,7 @@ const ModalCard = ({ handleClose, open, imgSrc, price, currency, seller, categor
   ];
 
   return (
-    <Dialog onClose={handleClose} open={open} maxWidth="md" sx={DIALOG_STYLES}>
+    <Dialog onClose={handleClose} open={open} maxWidth="md" sx={{ ...DIALOG_STYLES, backgroundColor: mode === "dark" ? "black" : "#fff" }}>
       <IconButton aria-label="close" onClick={handleClose} sx={DIALOG_ICON_BUTTON}>
         <CloseIcon />
       </IconButton>

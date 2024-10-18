@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { db } from "../fireBase";
 import { doc, getDoc } from "firebase/firestore";
 import { styled, alpha } from "@mui/material/styles";
+import { useSelector } from "react-redux";
 
 const StyledLink = styled(Link)({
   textDecoration: "none",
@@ -13,8 +14,6 @@ const Divider = styled("div")({
   backgroundColor: "#e0e0e0",
   margin: "0 13px",
 });
-
-
 
 const fetchUser = async (id) => {
   try {
@@ -58,7 +57,6 @@ const DIALOG_STYLES = {
     height: "auto",
     padding: "24px",
     boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
-    backgroundColor: mode === "dark" ? "black" : "#fff",
   }
 }
 
@@ -147,6 +145,21 @@ const DIALOG_MORE_BUTTON = {
   },
 }
 
+const SLIDES = [
+  {
+    image: "/book1.jpg",
+    text: "Books are the ships of thought.",
+  },
+  {
+    image: "/book2.webp",
+    text: "The book is a dream, that you hold in your hand.",
+  },
+  {
+    image: "/book3.jpg",
+    text: "Books are a pass to personal freedom.",
+  },
+];
+
 const SLIDER_CENTRED_TEXT_STYLES = {
   position: "absolute",
   top: "10%",
@@ -202,6 +215,7 @@ export {
   SLIDER_BOX_STYLES,
   SLIDER_BOX_SECOND_STYLES,
   SLIDER_CARD_MEDIA_STYLES,
+  SLIDES,
   fetchUser
 };
 

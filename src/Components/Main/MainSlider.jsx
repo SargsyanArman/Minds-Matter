@@ -2,7 +2,7 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Box, Typography, CardMedia } from "@mui/material";
-import { SLIDER_BOX_STYLES, SLIDER_BOX_SECOND_STYLES, SLIDER_CARD_MEDIA_STYLES, SLIDER_CENTRED_TEXT_STYLES } from "../../Constants/MenuConstants";
+import { SLIDER_BOX_STYLES, SLIDER_BOX_SECOND_STYLES, SLIDER_CARD_MEDIA_STYLES, SLIDER_CENTRED_TEXT_STYLES, SLIDES } from "../../Constants/MenuConstants";
 
 const CenteredText = ({ text }) => (
   <Box
@@ -15,20 +15,7 @@ const CenteredText = ({ text }) => (
 );
 
 const SlideshowWithCenteredText = () => {
-  const slides = [
-    {
-      image: "/book1.jpg",
-      text: "Books are the ships of thought.",
-    },
-    {
-      image: "/book2.webp",
-      text: "The book is a dream, that you hold in your hand.",
-    },
-    {
-      image: "/book3.jpg",
-      text: "Books are a pass to personal freedom.",
-    },
-  ];
+
 
   return (
     <Box sx={SLIDER_BOX_STYLES}>
@@ -38,7 +25,7 @@ const SlideshowWithCenteredText = () => {
         infiniteLoop
         sx={{ height: "215px" }}
       >
-        {slides.map((slide, index) => (
+        {SLIDES.map((slide, index) => (
           <Box
             key={index}
             sx={SLIDER_BOX_SECOND_STYLES}
