@@ -55,7 +55,6 @@ const DIALOG_STYLES = {
     borderRadius: "20px",
     width: "900px",
     height: "auto",
-    padding: "24px",
     boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)",
   }
 }
@@ -69,7 +68,10 @@ const DIALOG_ICON_BUTTON = {
 
 const DIALOG_CONTENT = {
   padding: 0,
-  display: "flex", gap: "24px"
+  display: "flex",
+  gap: "24px",
+  padding: "24px",
+
 }
 
 const DIALOG_IMG = {

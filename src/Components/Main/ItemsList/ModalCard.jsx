@@ -12,8 +12,6 @@ import {
 } from "../../../Constants/MenuConstants";
 
 const ModalCard = ({ handleClose, open, imgSrc, price, currency, seller, category, rating, rNum, itemURL, handleAddToCart }) => {
-  const mode = useSelector((state) => state.mode.mode);
-
   const { t } = React.useContext(LangContext);
   const prefix = "Card";
 
@@ -47,42 +45,42 @@ const ModalCard = ({ handleClose, open, imgSrc, price, currency, seller, categor
   ];
 
   return (
-    <Dialog onClose={handleClose} open={open} maxWidth="md" sx={{ ...DIALOG_STYLES, backgroundColor: mode === "dark" ? "black" : "#fff" }}>
-      <IconButton aria-label="close" onClick={handleClose} sx={DIALOG_ICON_BUTTON}>
-        <CloseIcon />
-      </IconButton>
-      <DialogContent sx={DIALOG_CONTENT}>
-        <img src={imgSrc} alt="Item" style={DIALOG_IMG} />
-        <div style={DIALOG_DIV}>
-          <div>
+    <Dialog onClose={handleClose} open={open} maxWidth="md" sx={DIALOG_STYLES}>
+      <ThemeModes tagName='simpleDiv'>
+        <IconButton aria-label="close" onClick={handleClose} sx={DIALOG_ICON_BUTTON}>
+          <CloseIcon />
+        </IconButton>
+        <DialogContent sx={DIALOG_CONTENT}>
+          <img src={imgSrc} alt="Item" style={DIALOG_IMG} />
+          <div style={DIALOG_DIV}>
             {details.map((item, index) => (
               <ThemeModes key={index} tagName="span" style={item.style}>
                 {item.label}
               </ThemeModes>
             ))}
+            <div style={{ marginBottom: "10px" }}>
+              {buttons.slice(0, 2).map((button, index) => (
+                <Button
+                  key={index}
+                  variant={button.variant}
+                  sx={button.sx}
+                  onClick={button.onClick}
+                >
+                  {button.label}
+                </Button>
+              ))}
+            </div>
+            <Button
+              variant={buttons[2].variant}
+              sx={buttons[2].sx}
+              href={buttons[2].href}
+              target={buttons[2].target}
+            >
+              {buttons[2].label}
+            </Button>
           </div>
-          <div style={{ marginBottom: "10px" }}>
-            {buttons.slice(0, 2).map((button, index) => (
-              <Button
-                key={index}
-                variant={button.variant}
-                sx={button.sx}
-                onClick={button.onClick}
-              >
-                {button.label}
-              </Button>
-            ))}
-          </div>
-          <Button
-            variant={buttons[2].variant}
-            sx={buttons[2].sx}
-            href={buttons[2].href}
-            target={buttons[2].target}
-          >
-            {buttons[2].label}
-          </Button>
-        </div>
-      </DialogContent>
+        </DialogContent>
+      </ThemeModes>
     </Dialog>
   );
 };
