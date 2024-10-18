@@ -60,6 +60,17 @@ const IconButtonStyled = styled(IconButton)(({ theme }) => ({
 }));
 
 
+const CURR_MENU_STYLES = {
+  width: 150,
+  overflow: "visible",
+  filter: "drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.2))",
+  mt: 1.5,
+  "& .MuiMenuItem-root": {
+    "&:hover": {
+      backgroundColor: alpha("#4caf50", 0.1),
+    },
+  },
+}
 
 const TypographyStyled = styled(Typography)(({ theme }) => ({
   fontSize: "1.5rem",
@@ -97,4 +108,5 @@ export {
   SearchIconWrapper,
   StyledInputBase,
   StyledSelect,
+  CURR_MENU_STYLES
 };
