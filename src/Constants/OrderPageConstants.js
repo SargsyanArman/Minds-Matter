@@ -172,6 +172,16 @@ const TEXT_ICON_STYLES = {
     color: "rgba(180, 180, 180, 0.7)"
 }
 
+const TOGGLE_BUTTONS_STYLES = {
+    height: 40,
+    borderRadius: "6px",
+    marginTop: "6px",
+}
+
+const TOGGLE_CLASSES_STYLES = {
+    selected: { backgroundColor: 'red !important' }
+}
+
 export {
     BOX_BG,
     CONTAINER_BG,
@@ -198,4 +208,6 @@ export {
     RIGHT_SIDE_BOX_STYLES,
     TEXT_BOX_STYLES,
     TEXT_ICON_STYLES,
+    TOGGLE_BUTTONS_STYLES,
+    TOGGLE_CLASSES_STYLES
 };

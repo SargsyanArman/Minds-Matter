@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { TOGGLE_BUTTONS_STYLES, TOGGLE_CLASSES_STYLES } from "../../../Constants/OrderPageConstants";
 
 
 export default function ToggleButtons({ rightLabel, leftLabel }) {
@@ -16,19 +17,15 @@ export default function ToggleButtons({ rightLabel, leftLabel }) {
       <ToggleButton
         value="left"
         aria-label="left aligned"
-        sx={{
-          height: 40, borderRadius: "6px", marginTop: "6px",
-        }}
-        classes={{ selected: { backgroundColor: 'red !important' } }}
-      // style={{ backgroundColor: 'red' }}
-
+        sx={TOGGLE_BUTTONS_STYLES}
+        classes={TOGGLE_CLASSES_STYLES}
       >
         {rightLabel}
       </ToggleButton>
       <ToggleButton
         value="right"
         aria-label="right aligned"
-        sx={{ height: 40, borderRadius: "6px", marginTop: "6px" }}
+        sx={TOGGLE_BUTTONS_STYLES}
       >
         {leftLabel}
       </ToggleButton>
