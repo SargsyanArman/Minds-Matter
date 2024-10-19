@@ -164,6 +164,13 @@ const RETURN_B_STYLES = {
     marginRight: "6px"
 }
 
+const RULES_SELLING_STYLES = {
+    padding: "24px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "10px",
+}
+
 export {
     ASK_A_QUESTIONS_LIST_STYLES,
     DELIVERY_TITLE_STYLES,
@@ -192,5 +199,6 @@ export {
     READY_B_STYLES,
     RETURN_SECTION_STYLES,
     RETURN_SPAN_STYLES,
-    RETURN_B_STYLES
+    RETURN_B_STYLES,
+    RULES_SELLING_STYLES
 }

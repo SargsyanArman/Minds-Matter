@@ -4,6 +4,7 @@ import { BoldTextNumeric } from "./ReadyMadeTemplates";
 import { LangContext } from "../../../Contexts/LangContext";
 import { Trans } from "react-i18next";
 import './Responsive.css';
+import { RULES_SELLING_STYLES } from "../../../Constants/AskAQuestionsConstants";
 
 const RulesForSelling = () => {
   const { t } = useContext(LangContext);
@@ -28,12 +29,7 @@ const RulesForSelling = () => {
   return (
     <ThemeModes
       tagName='simpleDiv'
-      style={{
-        padding: "24px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-      }}
+      style={RULES_SELLING_STYLES}
     >
       <ThemeModes tagName="h3">{t(`${prefix}.title`)}</ThemeModes>
       {rules.map((rule, index) => (
