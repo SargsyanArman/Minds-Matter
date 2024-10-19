@@ -141,6 +141,49 @@ const FD_BOX_STYLES = {
     padding: "32px 0 32px 32px"
 }
 
+const PR_ITEM_TOP = {
+    display: "flex",
+    alignItems: "center",
+};
+
+const PR_ITEM_BOTTOM = {
+    display: "flex",
+    justifyContent: "space-between",
+};
+
+const ROUND_BOX = {
+    width: "90px",
+    height: "90px",
+    borderRadius: "50%",
+    border: "4px solid #F8F0FF",
+    marginRight: "20px",
+};
+
+const MAX_TOTAL = {
+    fontSize: "24px",
+    lineHeight: "28px",
+    fontWeight: 700,
+    marginTop: "12px",
+};
+
+const STAR_STYLES = {
+    width: "80px",
+    height: "60px",
+    paddingTop: "18px",
+    marginLeft: "2px",
+    color: "purple",
+}
+
+const GENERAL_SPAN_STYLES = {
+    display: "flex",
+    justifyContent: "center",
+    paddingTop: "36%",
+}
+
+const MARGIN_RIGHT_TEN = {
+    marginRight: '10px',
+}
+
 export {
     BALANCE_TITLE_STYLES,
     BALLANCE_BUTTON_STYLES,
@@ -165,5 +208,12 @@ export {
     FEEDBACK_LINK_STYLES,
     FEEDBACK_BUTTON_BOTTOM_STYLES,
     FD_BOX_STYLES,
-    FD_COMMENT_STYLES
+    FD_COMMENT_STYLES,
+    PR_ITEM_TOP,
+    PR_ITEM_BOTTOM,
+    ROUND_BOX,
+    MAX_TOTAL,
+    STAR_STYLES,
+    GENERAL_SPAN_STYLES,
+    MARGIN_RIGHT_TEN
 }

@@ -12,7 +12,8 @@ import Visa from "/visa.png";
 import StarBorderPurple500Icon from "@mui/icons-material/StarBorderPurple500";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
-import {LangContext} from "../../../Contexts/LangContext";
+import { LangContext } from "../../../Contexts/LangContext";
+import { GENERAL_SPAN_STYLES, MARGIN_RIGHT_TEN, MAX_TOTAL, PR_ITEM_BOTTOM, PR_ITEM_TOP, ROUND_BOX, STAR_STYLES, USER_BOX_STYLES, USER_SIZE_AVATAR } from "../../../Constants/ProfileNavigationConstants";
 
 
 function General() {
@@ -20,49 +21,14 @@ function General() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState("");
   const { isAuth, id } = useAuth();
-  const  {t}= useContext(LangContext);
-  const prefix="general";
+  const { t } = useContext(LangContext);
+  const prefix = "general";
 
   useEffect(() => {
     if (isAuth && id) {
       fetchUser(id).then((data) => setUserData(data));
     }
   }, [isAuth, id]);
-
-  const sizeAvatar = {
-    height: "80px",
-    width: "80px",
-  };
-
-  const pr_item_top = {
-    display: "flex",
-    alignItems: "center",
-  };
-
-  const pr_item_bottom = {
-    display: "flex",
-    justifyContent: "space-between",
-  };
-
-  const pr_second_item_bottom = {
-    display: "flex",
-    margin: "12px 0",
-  };
-
-  const roundBox = {
-    width: "90px",
-    height: "90px",
-    borderRadius: "50%",
-    border: "4px solid #F8F0FF",
-    marginRight: "20px",
-  };
-
-  const maxTotal = {
-    fontSize: "24px",
-    lineHeight: "28px",
-    fontWeight: 700,
-    marginTop: "12px",
-  };
 
   const userDataPaymentMethods = () => {
     if (userData && userData.paymentMethod.length > 0) {
@@ -79,8 +45,8 @@ function General() {
   return (
     <ThemeModes tagName="simpleDiv" className="pr-general">
       <ThemeModes onClick={() => navigate('/profile/details')} tagName="gray-div" className="gn-user pr-item">
-        <div style={pr_item_top}>
-          <Avatar sx={{ ...sizeAvatar, marginRight: "20px" }}>
+        <div style={PR_ITEM_TOP}>
+          <Avatar sx={USER_SIZE_AVATAR}>
             <ThemeModes tagName="h3">
               {userData && userData.firstName ? userData.firstName[0] : "U"}
             </ThemeModes>
@@ -91,8 +57,8 @@ function General() {
             <TextMuiShared> {t(`${prefix}.loading`)} </TextMuiShared>
           )}
         </div>
-        <div style={pr_item_bottom}>
-          <ThemeModes className='flex-center' style={pr_item_bottom}>
+        <div style={PR_ITEM_BOTTOM}>
+          <ThemeModes className='flex-center' style={PR_ITEM_BOTTOM}>
             <ThemeModes tagName="gn-span" className='general-span' >{t(`${prefix}.telephone`)}</ThemeModes>
             <ThemeModes tagName="span" className='general-span'>
               {userData ? userData.phoneNumber : "N/A"}
@@ -111,16 +77,10 @@ function General() {
       </ThemeModes>
 
       <ThemeModes tagName="gradient-div" onClick={() => navigate('/profile/purchases/Deliveries')} className="gn-orders pr-item">
-        <div style={pr_item_top} className="logo-delivery">
-          <Box sx={roundBox}>
+        <div style={PR_ITEM_TOP} className="logo-delivery">
+          <Box sx={ROUND_BOX}>
             <StarBorderPurple500Icon
-              sx={{
-                width: "80px",
-                height: "60px",
-                paddingTop: "18px",
-                marginLeft: "2px",
-                color: "purple",
-              }}
+              sx={STAR_STYLES}
             />
           </Box>
           <TextMuiShared className='general-p'> {t(`${prefix}.deliveris`)} </TextMuiShared>
@@ -136,16 +96,12 @@ function General() {
       </ThemeModes>
 
       <ThemeModes tagName="gray-div" onClick={() => navigate('/profile/details')} className="gn-limit pr-item">
-        <div style={pr_item_top}>
-          <Box sx={roundBox}>
+        <div style={PR_ITEM_TOP}>
+          <Box sx={ROUND_BOX}>
             <ThemeModes
               tagName="span"
               className='flex-center general-span'
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                paddingTop: "36%",
-              }}
+              style={GENERAL_SPAN_STYLES}
             >
               <ThemeModes
                 tagName="span"
@@ -165,7 +121,7 @@ function General() {
 
         <div className="extra-info" style={{ margin: "12px 0" }}>
           <ThemeModes tagName="gn-span" className='general-span'> {t(`${prefix}.limit`)} </ThemeModes>
-          <ThemeModes tagName="p" className='general-p' style={maxTotal}>
+          <ThemeModes tagName="p" className='general-p' style={MAX_TOTAL}>
             567 $
           </ThemeModes>
         </div>
@@ -178,7 +134,7 @@ function General() {
         onClick={() => navigate('/profile/details', { state: { from: 'payment_methods' } })}
       >
         <TextMuiShared className='extra-info general-p'> {t(`${prefix}.payment`)} </TextMuiShared>
-        <ThemeModes tagName="p" className='general-p' style={pr_item_bottom}>
+        <ThemeModes tagName="p" className='general-p' style={PR_ITEM_BOTTOM}>
           <ThemeModes tagName="gn-span" className='general-span  gn-p-2'>{bankCard}</ThemeModes>
           <ThemeModes tagName="span" className='general-span  gn-p-2'>
             {userData && userData.paymentMethod.length > 0 ? (
@@ -194,9 +150,9 @@ function General() {
         <ThemeModes
           tagName="span"
           className='general-span'
-          style={{ display: "flex", alignItems: "center" }}
+          style={USER_BOX_STYLES}
         >
-          <AccountBalanceWalletIcon style={{ marginRight: "10px" }} />
+          <AccountBalanceWalletIcon style={MARGIN_RIGHT_TEN} />
           <ThemeModes tagName="gn-span" className='general-span'>0 $</ThemeModes>
         </ThemeModes>
       </ThemeModes>
@@ -207,7 +163,7 @@ function General() {
           tagName="span"
           className='extra-info general-span'
         >
-          <ProductionQuantityLimitsIcon style={{ marginRight: "10px" }} />
+          <ProductionQuantityLimitsIcon style={MARGIN_RIGHT_TEN} />
           <ThemeModes tagName="gn-span" className='general-span'> {t(`${prefix}.limit2`)} 3000 $</ThemeModes>
         </ThemeModes>
       </ThemeModes>
@@ -225,7 +181,7 @@ function General() {
       <ThemeModes onClick={() => navigate('/orders')} tagName="gray-div" className="gn-basket pr-item pr-last--line">
         <TextMuiShared className='general-p'> {t(`${prefix}.basket`)} </TextMuiShared>
         <ThemeModes tagName="gn-span" className='extra-info general-span'>
-        {t(`${prefix}.bookbasket`)} {userData && userData.orders.length} 
+          {t(`${prefix}.bookbasket`)} {userData && userData.orders.length}
         </ThemeModes>
       </ThemeModes>
 
