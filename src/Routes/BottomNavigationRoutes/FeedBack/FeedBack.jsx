@@ -4,6 +4,8 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ThemeModes from "../../../Components/Shared/ThemeModes";
 import { LangContext } from "../../../Contexts/LangContext";
+import { FEEDBACK_BOX_STYLES, FEEDBACK_NAV_ACTION_STYLES, FEEDBACK_NAV_STYLES } from "../../../Constants/ProfileNavigationConstants";
+import { DARK } from "../../../Constants/GlobalConstants";
 
 const FeedBack = () => {
   const { t } = useContext(LangContext);
@@ -28,42 +30,19 @@ const FeedBack = () => {
   const [value, setValue] = useState(initialValue === -1 ? 0 : initialValue);
   const mode = useSelector((state) => state.mode.mode);
 
-  const bottomNavigationActionStyles = {
-    display: "flex",
-    flexDirection: "row",
-    gap: "10px",
-    flex: 1,
-    "&.Mui-selected": {
-      color: mode === "dark" ? "rgb(233, 0, 0);" : "null",
-    },
-    "& .MuiBottomNavigationAction-label": {
-      fontSize: "15px",
-    },
-    "& .MuiBottomNavigationAction-icon": {
-      fontSize: "24px",
-    },
-  };
-
-  const bottomNavigationStyles = {
-    justifyContent: { xs: "space-around", md2: "space-between" },
-    width: { xs: '100%', md2: "20%" },
-    backgroundColor: "#d5d2d2",
-  };
-
   return (
     <ThemeModes
       tagName="div"
       style={{
-        width: "100%",
-        backgroundColor: "#d5d2d2",
-        borderTop: mode === "dark" ? "1px solid #333" : "1px solid #ccc",
+        ...FEEDBACK_BOX_STYLES,
+        borderTop: mode === DARK ? "1px solid #333" : "1px solid #ccc",
       }}
     >
       <BottomNavigation
         showLabels
         value={value}
         onChange={(event, newValue) => setValue(newValue)}
-        sx={bottomNavigationStyles}
+        sx={FEEDBACK_NAV_STYLES}
       >
         {feedBackNavigation.map(({ to, label }, index) => (
           <BottomNavigationAction
@@ -71,7 +50,12 @@ const FeedBack = () => {
             component={Link}
             to={to}
             label={label}
-            sx={bottomNavigationActionStyles}
+            sx={{
+              ...FEEDBACK_NAV_ACTION_STYLES,
+              "&.Mui-selected": {
+                color: mode === DARK ? "rgb(233, 0, 0);" : "null",
+              },
+            }}
             value={index}
           />
         ))}

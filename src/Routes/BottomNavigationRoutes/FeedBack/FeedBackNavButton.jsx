@@ -1,32 +1,29 @@
 import { Button, Menu, MenuItem } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { LangContext } from "../../../Contexts/LangContext";
+import { FEEDBACK_BUTTON_BOTTOM_STYLES, FEEDBACK_LINK_STYLES } from "../../../Constants/ProfileNavigationConstants";
 
 function FeedBackNavButton() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
+  const [anchorEl, setAnchorEl] = useState(null);
   const { t } = useContext(LangContext);
   const prefix = "Feedback";
 
-  function handleClick(event) {
-    if (anchorEl !== event.currentTarget) {
-      setAnchorEl(event.currentTarget);
-    }
-  }
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  function handleClose() {
+  const handleClose = () => {
     setAnchorEl(null);
-  }
+  };
 
   return (
-    <div>
+    <>
       <Button
-        aria-owns={anchorEl ? "simple-menu" : undefined}
+        aria-controls={anchorEl ? "simple-menu" : undefined}
         aria-haspopup="true"
         onClick={handleClick}
-        sx={{ color: "inherit", textTransform: "capitalize" }}
-        onMouseOver={handleClick}
+        sx={FEEDBACK_BUTTON_BOTTOM_STYLES}
       >
         {t(`${prefix}.button`)}
       </Button>
@@ -37,24 +34,15 @@ function FeedBackNavButton() {
         onClose={handleClose}
         MenuListProps={{ onMouseLeave: handleClose }}
       >
-        <MenuItem onClick={handleClose}>
-          <Link
-            to="feedback/comments"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            {t(`${prefix}.menu link1`)}
-          </Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link
-            to="feedback/questions"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            {t(`${prefix}.menu link2`)}
-          </Link>
-        </MenuItem>
+        {["comments", "questions"].map((link, index) => (
+          <MenuItem key={link} onClick={handleClose}>
+            <Link to={`feedback/${link}`} style={FEEDBACK_LINK_STYLES}>
+              {t(`${prefix}.menu link${index + 1}`)}
+            </Link>
+          </MenuItem>
+        ))}
       </Menu>
-    </div>
+    </>
   );
 }
 
