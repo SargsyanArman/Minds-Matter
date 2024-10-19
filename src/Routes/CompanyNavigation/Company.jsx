@@ -3,20 +3,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import ThemeModes from "../../Components/Shared/ThemeModes";
 import { useContext } from "react";
 import { LangContext } from "../../Contexts/LangContext";
-
-const bottomNavigationActionStyles = {
-    display: "flex",
-    flexDirection: "row",
-    color: "black",
-    gap: "10px",
-    flex: 1,
-    "& .MuiBottomNavigationAction-label": {
-        fontSize: "15px",
-    },
-    "& .MuiBottomNavigationAction-icon": {
-        fontSize: "24px",
-    },
-};
+import { COMPANY_NAV_ACTION_STYLES } from "../../Constants/CompanyConstants";
 
 const Company = () => {
     const { t } = useContext(LangContext);
@@ -61,7 +48,7 @@ const Company = () => {
                         component={Link}
                         to={to}
                         label={label}
-                        sx={bottomNavigationActionStyles}
+                        sx={COMPANY_NAV_ACTION_STYLES}
                         className="nav-company"
                     />
                 ))}

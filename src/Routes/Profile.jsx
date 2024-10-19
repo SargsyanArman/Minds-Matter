@@ -15,20 +15,7 @@ import FeedBackNavButton from "./BottomNavigationRoutes/FeedBack/FeedBackNavButt
 import { useAuth } from "../Hooks/use-auth";
 import UnauthorizedAccess from "../helperComponents/UnauthorizedAccess";
 import { LangContext } from "../Contexts/LangContext";
-
-const bottomNavigationActionStyles = {
-  display: "flex",
-  flexDirection: "row",
-  color: "black",
-  gap: "10px",
-  flex: 1,
-  "& .MuiBottomNavigationAction-label": {
-    fontSize: "15px",
-  },
-  "& .MuiBottomNavigationAction-icon": {
-    fontSize: "24px",
-  },
-};
+import { PROFILE_ACTION_STYLES, PROFILE_NAV_ACTION_STYLES } from "../Constants/ProfileNavigationConstants";
 
 function Profile() {
   const { t } = useContext(LangContext);
@@ -81,7 +68,7 @@ function Profile() {
       <BottomNavigation
         showLabels
         value={value}
-        sx={{ justifyContent: "space-between", display: { xs: 'none', md2: 'flex' } }}
+        sx={PROFILE_ACTION_STYLES}
       >
         {profileNavigation.map(({ to, label, icon }) => (
           <BottomNavigationAction
@@ -90,7 +77,7 @@ function Profile() {
             to={to}
             label={label}
             icon={icon}
-            sx={bottomNavigationActionStyles}
+            sx={PROFILE_NAV_ACTION_STYLES}
           />
         ))}
       </BottomNavigation>

@@ -11,7 +11,7 @@ import {
   Radio,
   RadioGroup,
   FormControlLabel,
-  FormControl
+  FormControl,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -32,16 +32,18 @@ import Copyright from "../../helperComponents/Copyright";
 import InputMuiShared from "../../Components/Shared/InputMuiShared";
 import ThemeModes from "../../Components/Shared/ThemeModes";
 import { LangContext } from "../../Contexts/LangContext";
+import { SIGNIN_BUTTON_STYLES } from "../../Constants/SignFormConstants";
+import { DARK } from "../../Constants/GlobalConstants";
 
-const StyledLink = styled(Link)({
-  textDecoration: "none",
-  color: "inherit",
-  "&:hover": {
-    textDecoration: "underline",
-    color: "#a103fc",
-    transition: "color 0.3s ease, text-decoration 0.3s ease",
-  },
-});
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: underline;
+    color: #a103fc;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+`;
 
 const defaultTheme = createTheme();
 
@@ -56,34 +58,22 @@ export default function AccMenu() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const auth = getAuth();
-
   const { t } = useContext(LangContext);
   const prefix = "Sign up page";
 
+  const formBackground = { backgroundColor: mode === DARK ? "#aaaaaa" : "white" };
+  const radioStyle = { color: mode === DARK ? "white" : null };
+
   return (
     <ThemeProvider theme={defaultTheme}>
-      <div
-        style={{
-          backgroundColor: mode === "dark" ? "#aaaaaa" : "white",
-          paddingBottom: "60px",
-        }}
-      >
+      <div style={{ ...formBackground, paddingBottom: "60px" }}>
         <Container component="main" maxWidth="xs" sx={{ padding: "1px" }}>
           <CssBaseline />
-          <Box
-            sx={{
-              marginTop: 8,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
+          <Box sx={{ marginTop: 8, display: "flex", flexDirection: "column", alignItems: "center" }}>
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
-              {t(`${prefix}.title`)}
-            </Typography>
+            <Typography component="h1" variant="h5">{t(`${prefix}.title`)}</Typography>
             <Box
               component="form"
               noValidate
@@ -98,68 +88,31 @@ export default function AccMenu() {
               sx={{ mt: 3 }}
             >
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <InputMuiShared
-                    required
-                    fullWidth
-                    id="firstName"
-                    label={t(`${prefix}.fname`)}
-                    name="firstName"
-                    autoComplete="given-name"
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <InputMuiShared
-                    required
-                    fullWidth
-                    id="lastName"
-                    label={t(`${prefix}.lname`)}
-                    name="lastName"
-                    autoComplete="family-name"
-                  />
-                </Grid>
+                {["firstName", "lastName"].map((name, i) => (
+                  <Grid item xs={12} sm={6} key={i}>
+                    <InputMuiShared
+                      required
+                      fullWidth
+                      id={name}
+                      label={t(`${prefix}.${name === "firstName" ? "fname" : "lname"}`)}
+                      name={name}
+                      autoComplete={name === "firstName" ? "given-name" : "family-name"}
+                    />
+                  </Grid>
+                ))}
                 <Grid item xs={12}>
                   <FormControl component="fieldset" fullWidth required>
-                    <ThemeModes tagName="h3" component="legend">
-                      {t(`${prefix}.gender`)}
-                    </ThemeModes>
-                    <RadioGroup
-                      row
-                      aria-label="gender"
-                      name="gender"
-                      value={gender}
-                      onChange={handleGenderChange(setGender)}
-                    >
-                      <FormControlLabel
-                        value="male"
-                        style={{ color: mode === "dark" ? "white" : null }}
-                        control={
-                          <Radio
-                            style={{ color: mode === "dark" ? "white" : null }}
-                          />
-                        }
-                        label={t(`${prefix}.male`)}
-                      />
-                      <FormControlLabel
-                        value="female"
-                        style={{ color: mode === "dark" ? "white" : null }}
-                        control={
-                          <Radio
-                            style={{ color: mode === "dark" ? "white" : null }}
-                          />
-                        }
-                        label={t(`${prefix}.female`)}
-                      />
-                      <FormControlLabel
-                        value="other"
-                        style={{ color: mode === "dark" ? "white" : null }}
-                        control={
-                          <Radio
-                            style={{ color: mode === "dark" ? "white" : null }}
-                          />
-                        }
-                        label={t(`${prefix}.other`)}
-                      />
+                    <ThemeModes tagName="h3">{t(`${prefix}.gender`)}</ThemeModes>
+                    <RadioGroup row value={gender} onChange={handleGenderChange(setGender)}>
+                      {["male", "female", "other"].map((value) => (
+                        <FormControlLabel
+                          key={value}
+                          value={value}
+                          control={<Radio sx={radioStyle} />}
+                          label={t(`${prefix}.${value}`)}
+                          sx={radioStyle}
+                        />
+                      ))}
                     </RadioGroup>
                   </FormControl>
                 </Grid>
@@ -182,7 +135,7 @@ export default function AccMenu() {
                     onChange={handlePhoneChange(setPhoneNumber, setCountryCode)}
                     defaultCountry={countryCode}
                     error={!!error}
-                    style={{ width: "100%", backgroundColor: "white" }}
+                    fullWidth
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -207,24 +160,13 @@ export default function AccMenu() {
                   />
                 </Grid>
               </Grid>
-              {error && (
-                <Typography color="error" sx={{ mt: 2 }}>
-                  {error}
-                </Typography>
-              )}
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
+              {error && <Typography color="error" sx={{ mt: 2 }}>{error}</Typography>}
+              <Button type="submit" fullWidth variant="contained" sx={SIGNIN_BUTTON_STYLES}>
                 {t(`${prefix}.submit`)}
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <StyledLink to="/signin">
-                    {t(`${prefix}.signin`)}
-                  </StyledLink>
+                  <StyledLink to="/signin">{t(`${prefix}.signin`)}</StyledLink>
                 </Grid>
               </Grid>
             </Box>

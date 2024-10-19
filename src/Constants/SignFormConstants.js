@@ -11,4 +11,26 @@ const StyledLink = styled(Link)({
   },
 });
 
-export { StyledLink };
+const SIGNIN_BOX_STYLES = {
+  marginTop: 8,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+}
+
+const SIGNIN_BUTTON_STYLES = {
+  mt: 3,
+  mb: 2
+}
+
+const SIGNIN_COPYRIGHT_STYLES = {
+  mt: 8,
+  mb: 4
+}
+
+export {
+  StyledLink,
+  SIGNIN_BOX_STYLES,
+  SIGNIN_BUTTON_STYLES,
+  SIGNIN_COPYRIGHT_STYLES
+};

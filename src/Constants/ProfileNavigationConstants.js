@@ -214,6 +214,24 @@ const SORT_STYLES = {
     borderRadius: "10px",
 };
 
+const PROFILE_NAV_ACTION_STYLES = {
+    display: "flex",
+    flexDirection: "row",
+    color: "black",
+    gap: "10px",
+    flex: 1,
+    "& .MuiBottomNavigationAction-label": {
+        fontSize: "15px",
+    },
+    "& .MuiBottomNavigationAction-icon": {
+        fontSize: "24px",
+    },
+};
+
+const PROFILE_ACTION_STYLES = {
+    justifyContent: "space-between",
+    display: { xs: 'none', md2: 'flex' }
+}
 
 export {
     BALANCE_TITLE_STYLES,
@@ -250,5 +268,7 @@ export {
     PURCHASES_NAV_STYLES,
     PURCHASES_NAV_ACTION_STYLES,
     PURCHASES_BOX_STYLE,
-    SORT_STYLES
+    SORT_STYLES,
+    PROFILE_NAV_ACTION_STYLES,
+    PROFILE_ACTION_STYLES
 }

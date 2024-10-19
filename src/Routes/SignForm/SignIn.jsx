@@ -8,7 +8,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Copyright from "../../helperComponents/Copyright";
-import { StyledLink } from "../../Constants/SignFormConstants";
+import { SIGNIN_BOX_STYLES, SIGNIN_COPYRIGHT_STYLES, StyledLink } from "../../Constants/SignFormConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -30,14 +30,12 @@ export default function SignIn() {
   const { t } = React.useContext(LangContext);
   const prefix = "Sign in page";
 
-  // Состояние для Snackbar
   const [snackbar, setSnackbar] = React.useState({
     open: false,
     message: "",
     severity: "error",
   });
 
-  // Закрытие Snackbar
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
   };
@@ -81,12 +79,7 @@ export default function SignIn() {
         <Container component="main" maxWidth="xs" sx={{ padding: "1px" }}>
           <CssBaseline />
           <Box
-            sx={{
-              marginTop: 8,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
+            sx={SIGNIN_BOX_STYLES}
           >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
@@ -119,7 +112,7 @@ export default function SignIn() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={SIGNIN_BOX_STYLES}
               >
                 {t(`${prefix}.submit`)}
               </Button>
@@ -137,7 +130,7 @@ export default function SignIn() {
               </Grid>
             </Box>
           </Box>
-          <Copyright sx={{ mt: 8, mb: 4 }} />
+          <Copyright sx={SIGNIN_COPYRIGHT_STYLES} />
 
           <Snackbar
             open={snackbar.open}

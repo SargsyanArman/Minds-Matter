@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  mode: "light",
-};
+const initialMode = sessionStorage.getItem("mode") || "light";
 
 const modeSlice = createSlice({
   name: "mode",
-  initialState,
+  initialState: {
+    mode: initialMode,
+  },
   reducers: {
     setMode: (state, action) => {
       state.mode = action.payload;
+      sessionStorage.setItem("mode", action.payload);
     },
   },
 });
