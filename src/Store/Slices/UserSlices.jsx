@@ -1,5 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const saveUserToStorage = (user) => {
+  sessionStorage.setItem('user', JSON.stringify(user));
+};
+
+const removeUserFromStorage = () => {
+  sessionStorage.removeItem('user');
+};
+
 const savedUser = JSON.parse(sessionStorage.getItem('user'));
 
 const initialState = {
@@ -14,23 +22,18 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.email = action.payload.email;
-      state.token = action.payload.token;
-      state.id = action.payload.id;
-      state.emailVerified = action.payload.emailVerified;
-      sessionStorage.setItem('user', JSON.stringify({
-        email: action.payload.email,
-        token: action.payload.token,
-        id: action.payload.id,
-        emailVerified: action.payload.emailVerified,
-      }));
+      const { email, token, id, emailVerified } = action.payload;
+      Object.assign(state, { email, token, id, emailVerified });
+      saveUserToStorage({ email, token, id, emailVerified });
     },
     removeUser: (state) => {
-      state.email = null;
-      state.token = null;
-      state.id = null;
-      state.emailVerified = false;
-      sessionStorage.removeItem('user');
+      Object.assign(state, {
+        email: null,
+        token: null,
+        id: null,
+        emailVerified: false,
+      });
+      removeUserFromStorage();
     },
   },
 });
