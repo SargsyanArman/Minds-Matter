@@ -132,6 +132,38 @@ const PAYMENT_METHOD_COLLAPSE_STYLES = {
     gap: "16px"
 }
 
+const READY_LIST_STYLES = {
+    display: "flex",
+    gap: "4px",
+    alignItems: "center"
+}
+
+const READY_BOLD_TEXT_STYLES = {
+    display: "flex",
+    alignItems: "center"
+}
+
+const READY_B_STYLES = {
+    fontSize: "24px",
+    marginRight: "6px"
+}
+
+const RETURN_SECTION_STYLES = {
+    display: "flex",
+    flexDirection: "column",
+    marginTop: "10px"
+}
+
+const RETURN_SPAN_STYLES = {
+    display: "flex",
+    alignItems: "center"
+}
+
+const RETURN_B_STYLES = {
+    fontSize: "24px",
+    marginRight: "6px"
+}
+
 export {
     ASK_A_QUESTIONS_LIST_STYLES,
     DELIVERY_TITLE_STYLES,
@@ -155,4 +187,10 @@ export {
     MONEY_REFUND_LI_STYLES,
     PAYMENT_METHOD_IMAGE_STYLES,
     PAYMENT_METHOD_COLLAPSE_STYLES,
+    READY_LIST_STYLES,
+    READY_BOLD_TEXT_STYLES,
+    READY_B_STYLES,
+    RETURN_SECTION_STYLES,
+    RETURN_SPAN_STYLES,
+    RETURN_B_STYLES
 }
