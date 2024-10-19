@@ -2,89 +2,18 @@ import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { Box, List, ListItem } from '@mui/material';
 import { LangContext } from '../../../Contexts/LangContext';
 import ThemeModes from '../../../Components/Shared/ThemeModes';
-
-import './Responsive.css';
+import './responsive.css';
 
 const AskAQuestion = () => {
   const { t } = useContext(LangContext);
   const prefix = "Ask a question";
 
   const sections = useMemo(() => [
-    {
-      id: 1,
-      title: t(`${prefix}.askAQuestion`),
-      content: (
-        <ThemeModes className='ask-h3' tagName="gn-p">
-          {t(`${prefix}.askAQuestion text`)}
-        </ThemeModes>
-      ),
-    },
-    {
-      id: 2,
-      title: t(`${prefix}.search`),
-      content: (
-        <>
-          <ThemeModes className='ask-h3' tagName="gn-p">
-            {t(`${prefix}.search text`)}
-          </ThemeModes>
-          <ul style={{ padding: 16 }}>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.search option1`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.search option2`)}</ThemeModes></li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      id: 3,
-      title: t(`${prefix}.signup`),
-      content: (
-        <>
-          <ThemeModes tagName="gn-p" style={{ fontSize: '24px', padding: '10px 0' }}>
-            {t(`${prefix}.signup text`)}
-          </ThemeModes>
-          <ul style={{ padding: 16 }}>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.signup step1`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.signup step2`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.signup step3`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.signup step4`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.signup step5`)}</ThemeModes></li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      id: 4,
-      title: t(`${prefix}.order`),
-      content: (
-        <>
-          <ThemeModes tagName="gn-p" style={{ fontSize: '24px', padding: '10px 0' }}>
-            {t(`${prefix}.order text`)}
-          </ThemeModes>
-          <ul style={{ padding: 16 }}>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.order step1`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.order step2`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.order step3`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.order step4`)}</ThemeModes></li>
-          </ul>
-        </>
-      ),
-    },
-    {
-      id: 5,
-      title: t(`${prefix}.cancel`),
-      content: (
-        <>
-          <ThemeModes tagName="gn-p" style={{ fontSize: '24px', padding: '10px 0' }}>
-            {t(`${prefix}.cancel text`)}
-          </ThemeModes>
-          <ul style={{ padding: 16 }}>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.cancel step1`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.cancel step2`)}</ThemeModes></li>
-            <li><ThemeModes className='ask-p' tagName="gn-p">{t(`${prefix}.cancel step3`)}</ThemeModes></li>
-          </ul>
-        </>
-      ),
-    },
+    { id: 1, title: t(`${prefix}.askAQuestion`), content: [t(`${prefix}.askAQuestion text`)] },
+    { id: 2, title: t(`${prefix}.search`), content: [t(`${prefix}.search text`), t(`${prefix}.search option1`), t(`${prefix}.search option2`)] },
+    { id: 3, title: t(`${prefix}.signup`), content: [t(`${prefix}.signup text`), t(`${prefix}.signup step1`), t(`${prefix}.signup step2`), t(`${prefix}.signup step3`), t(`${prefix}.signup step4`)] },
+    { id: 4, title: t(`${prefix}.order`), content: [t(`${prefix}.order text`), t(`${prefix}.order step1`), t(`${prefix}.order step2`), t(`${prefix}.order step3`), t(`${prefix}.order step4`)] },
+    { id: 5, title: t(`${prefix}.cancel`), content: [t(`${prefix}.cancel text`), t(`${prefix}.cancel step1`), t(`${prefix}.cancel step2`), t(`${prefix}.cancel step3`)] },
   ], [t]);
 
   const [selectedSection, setSelectedSection] = useState(sections[0]);
@@ -95,28 +24,26 @@ const AskAQuestion = () => {
 
   useEffect(() => {
     const currentRef = sectionRefs.current[selectedSection.id]?.current;
-    console.log(currentRef);
-
     if (currentRef) {
-      requestAnimationFrame(() => {
-        currentRef.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+      requestAnimationFrame(() => currentRef.scrollIntoView({ behavior: 'smooth', block: 'start' }));
     }
   }, [selectedSection]);
 
-  const selectedRef = useRef(selectedSection);
   useEffect(() => {
-    const translatedSection = sections.find(section => section.id === selectedRef.current.id);
-    setSelectedSection(translatedSection)
+    const updatedSection = sections.find(section => section.id === selectedSection.id);
+    if (updatedSection) {
+      setSelectedSection(updatedSection);
+    }
   }, [sections]);
 
   const handleSectionClick = (id) => {
-    setSelectedSection(sections.find(section => section.id === id));
+    const section = sections.find(s => s.id === id);
+    if (section) setSelectedSection(section);
   };
 
   return (
-    <ThemeModes tagName="simpleDiv" className='ask-header-div'>
-      <ThemeModes tagName="div" className='left-div'>
+    <ThemeModes tagName="simpleDiv" className="ask-header-div">
+      <ThemeModes tagName="div" className="left-div">
         <List>
           {sections.map(({ id, title }) => (
             <ListItem
@@ -130,10 +57,15 @@ const AskAQuestion = () => {
         </List>
       </ThemeModes>
 
-      <Box className='right-div' width="70%" p={2}>
+      <Box className="right-div" width="70%" p={2}>
         <ThemeModes tagName="h3" className="ask-h3">{selectedSection.title}</ThemeModes>
         <Box mt={2} ref={sectionRefs.current[selectedSection.id]}>
-          {selectedSection.content}
+          <ThemeModes className="ask-h3" tagName="gn-p">{selectedSection.content[0]}</ThemeModes>
+          <ul style={{ padding: 16 }}>
+            {selectedSection.content.slice(1).map((text, idx) => (
+              <li key={idx}><ThemeModes className="ask-p" tagName="gn-p">{text}</ThemeModes></li>
+            ))}
+          </ul>
         </Box>
       </Box>
     </ThemeModes>
