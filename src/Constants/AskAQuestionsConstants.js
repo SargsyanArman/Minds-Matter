@@ -120,6 +120,18 @@ const MONEY_REFUND_LI_STYLES = {
     margin: "5px 0"
 }
 
+const PAYMENT_METHOD_IMAGE_STYLES = {
+    width: "50px",
+    height: "30px"
+}
+
+const PAYMENT_METHOD_COLLAPSE_STYLES = {
+    paddingLeft: "20px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px"
+}
+
 export {
     ASK_A_QUESTIONS_LIST_STYLES,
     DELIVERY_TITLE_STYLES,
@@ -140,5 +152,7 @@ export {
     MONEY_REFUND_TEXT_STYLES,
     MONEY_REFUND_TITLE_STYLES,
     MONEY_REFUND_UL_STYLES,
-    MONEY_REFUND_LI_STYLES
+    MONEY_REFUND_LI_STYLES,
+    PAYMENT_METHOD_IMAGE_STYLES,
+    PAYMENT_METHOD_COLLAPSE_STYLES,
 }
