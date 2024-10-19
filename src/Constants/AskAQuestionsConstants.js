@@ -72,6 +72,24 @@ const DELIVERY_IMAGE_STYLES = {
     objectFit: "contain",
     borderRadius: 14
 }
+
+const MAKE_ORDER_BOX_STYLES = {
+    width: "100%",
+    height: 200,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "10px",
+}
+
+const MAKE_ORDER_IMAGE_STYLES = {
+    width: "90%",
+    height: "100%",
+    borderRadius: "14px",
+}
+
+const MAKE_ORDER_STEPS = [2, 3, 4, 5, 6, 7];
+
 export {
     ASK_A_QUESTIONS_LIST_STYLES,
     DELIVERY_TITLE_STYLES,
@@ -84,5 +102,8 @@ export {
     DELIVERY_BOX_STYLES_THIRD,
     DELIVERY_BOX_STYLES_FORTH,
     DELIVERY_BOX_STYLES_FIFTH,
-    DELIVERY_IMAGE_STYLES
+    DELIVERY_IMAGE_STYLES,
+    MAKE_ORDER_BOX_STYLES,
+    MAKE_ORDER_IMAGE_STYLES,
+    MAKE_ORDER_STEPS
 }

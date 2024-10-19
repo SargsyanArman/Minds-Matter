@@ -88,7 +88,7 @@
 			"general": {
 				"logout": "Լog out",
 				"telephone": "Telephone",
-				"deliveris":"Deliveris",
+				"deliveris": "Deliveris",
 				"closest": "Closest",
 				"delivery": "Delivery ",
 				"orders": "No orders",
@@ -98,20 +98,20 @@
 				"limit": "Your Cash on Delivery Limit",
 				"to": " Up to",
 				"balance": "Balance",
-				"purchase":"Purchases",
+				"purchase": "Purchases",
 				"view": "View",
-				"checks":"Checks",
+				"checks": "Checks",
 				"basket": "Basket",
-				"bookbasket":"Number of books in the busket- ",
+				"bookbasket": "Number of books in the busket- ",
 				"fav": "Favorites",
-				"instock":"In stock",
-				"limit2":"Limit",
-				"inparts":"In parts",
-				"loading":"Loading..."
+				"instock": "In stock",
+				"limit2": "Limit",
+				"inparts": "In parts",
+				"loading": "Loading..."
 			},
-"favorites":{
-"favorites":"Favorites"
-},
+			"favorites": {
+				"favorites": "Favorites"
+			},
 			"Feedback": {
 				"button": "Feedback",
 				"menu link1": "Comments",
@@ -362,6 +362,7 @@
 				"title": "How to make an order",
 				"step1": "Login or register.",
 				"step2": "Add an item to cart.",
+				"step2 detail": "     Please select product and go to \"Cart\".",
 				"step3": "Go to cart.",
 				"step3 detail": "     To continue making your order, go to \"Cart\".",
 				"step4": "Check your order.",
