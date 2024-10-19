@@ -91,6 +91,13 @@ const USER_BOX_STYLES = {
     alignItems: 'center'
 }
 
+const FAVORITES_BOX_STYLE = {
+    padding: '30px 0'
+}
+
+const FAVORITES_BREADCRUMBS_STYLE = {
+    margin: "15px 30px"
+}
 
 export {
     BALANCE_TITLE_STYLES,
@@ -107,5 +114,7 @@ export {
     MODAL_INPUT_STYLES,
     USER_CIRCLE_ICON_STYLES,
     USER_SIZE_AVATAR,
-    USER_BOX_STYLES
+    USER_BOX_STYLES,
+    FAVORITES_BOX_STYLE,
+    FAVORITES_BREADCRUMBS_STYLE
 }

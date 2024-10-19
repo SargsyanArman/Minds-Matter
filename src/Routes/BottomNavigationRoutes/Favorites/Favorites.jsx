@@ -9,12 +9,13 @@ import { setFavorites } from "../../../Store/Slices/FavoriteSlices";
 import ThemeModes from "../../../Components/Shared/ThemeModes";
 import { Breadcrumbs } from "@mui/material";
 import { LangContext } from "../../../Contexts/LangContext"
+import { FAVORITES_BOX_STYLE, FAVORITES_BREADCRUMBS_STYLE } from "../../../Constants/ProfileNavigationConstants";
 
 function Favorites() {
 	const { isAuth, id } = useAuth();
 	const dispatch = useDispatch();
-	const  {t} = useContext(LangContext);
-	const prefix ="favorites"
+	const { t } = useContext(LangContext);
+	const prefix = "favorites"
 
 	useEffect(() => {
 		if (isAuth && id) {
@@ -27,18 +28,18 @@ function Favorites() {
 			});
 		}
 	}, [isAuth, id, dispatch]);
-	const favoriteItems = useSelector((state) => state.favorites);
+	const FAVORITE_ITEMS = useSelector((state) => state.favorites);
 
 	return (
-		<ThemeModes tagName='simpleDiv' style={{ padding: '30px 0' }}>
-			<Breadcrumbs aria-label="breadcrumb" sx={{ margin: "15px 30px" }}>
+		<ThemeModes tagName='simpleDiv' style={FAVORITES_BOX_STYLE}>
+			<Breadcrumbs aria-label="breadcrumb" sx={FAVORITES_BREADCRUMBS_STYLE}>
 				<ThemeModes tagName='h1'>
 					{t(`${prefix}.favorites`)}
 				</ThemeModes>
 			</Breadcrumbs>
 
 			<ul className="favorties-list">
-				{favoriteItems.map((item, index) => (
+				{FAVORITE_ITEMS.map((item, index) => (
 					<li key={index}>
 						<Card
 							id={item.id}
