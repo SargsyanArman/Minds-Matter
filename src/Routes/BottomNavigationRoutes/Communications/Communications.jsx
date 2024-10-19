@@ -2,17 +2,17 @@ import ThemeModes from "../../../Components/Shared/ThemeModes";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { LangContext } from "../../../Contexts/LangContext";
-
 import './Communication.css';
+import { COMM_BOX_STYLES, COMM_SUB_TITLE_STYLES } from "../../../Constants/ProfileNavigationConstants";
 
 const Communications = () => {
   const { t } = useContext(LangContext);
   const prefix = "Communications";
 
   return (
-    <ThemeModes tagName="simpleDiv" style={{ padding: "32px 0 32px 32px" }}>
+    <ThemeModes tagName="simpleDiv" style={COMM_BOX_STYLES}>
       <ThemeModes tagName="h3">{t(`${prefix}.title`)}</ThemeModes>
-      <ThemeModes tagName="h5" style={{ margin: "8px 0 18px 0" }}>
+      <ThemeModes tagName="h5" style={COMM_SUB_TITLE_STYLES}>
         {t(`${prefix}.subtitle`)}
       </ThemeModes>
       <ThemeModes tagName="gn-p">

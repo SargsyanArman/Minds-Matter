@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { updateDoc, arrayUnion, doc } from "firebase/firestore";
 import { db } from "../../../fireBase";
 import { useAuth } from "../../../Hooks/use-auth";
@@ -7,44 +7,29 @@ import { AddCard } from "@mui/icons-material";
 import SharedInput from "../../../Components/Shared/SharedInput";
 import { useContext } from "react";
 import { LangContext } from "../../../Contexts/LangContext";
+import { DETAILS_MODAL_BOX_STYLES, DETAILS_MODAL_INPUT_BOX_STYLES, DETAILS_MODAL_STYLES, MODAL_INPUT_STYLES } from '../../../Constants/ProfileNavigationConstants';
 
 export default function ModalAddCard({ onCardAdded }) {
-	const [open, setOpen] = React.useState(false);
-	const [cardNumber, setCardNumber] = React.useState("");
-	const [expiryDate, setExpiryDate] = React.useState("");
-	const [cvv, setCvv] = React.useState("");
-	const [errors, setErrors] = React.useState({});
+	const [open, setOpen] = useState(false);
+	const [cardData, setCardData] = useState({
+		cardNumber: "",
+		expiryDate: "",
+		cvv: ""
+	});
+	const [errors, setErrors] = useState({});
 	const { id } = useAuth();
-    const { t } = useContext(LangContext);
-    const prefix = "Profile";
+	const { t } = useContext(LangContext);
+	const prefix = "Profile";
 
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
-	const style = {
-		position: "absolute",
-		top: "50%",
-		left: "50%",
-		transform: "translate(-50%, -50%)",
-		width: { xs: 310, sm: 400 },
-		height: { xs: 'auto', sm: 400 },
-		bgcolor: "background.paper",
-		border: "2px solid #000",
-		boxShadow: 24,
-		p: 4,
-	};
-
-	const validateCardNumber = (number) =>
-		/^\d{4} \d{4} \d{4} \d{4}$/.test(number);
-	const validateExpiryDate = (date) =>
-		/^(0[1-9]|1[0-2])\/[0-9]{2}$/.test(date);
+	const validateCardNumber = (number) => /^\d{4} \d{4} \d{4} \d{4}$/.test(number);
+	const validateExpiryDate = (date) => /^(0[1-9]|1[0-2])\/[0-9]{2}$/.test(date);
 	const validateCvv = (cvv) => /^\d{3,4}$/.test(cvv);
 
 	const formatCardNumber = (number) => {
-		let digits = number.replace(/\D/g, "");
-		if (digits.length > 16) {
-			digits = digits.slice(0, 16);
-		}
+		let digits = number.replace(/\D/g, "").slice(0, 16);
 		return digits
 			.replace(/(\d{4})(\d{1,4})/, "$1 $2")
 			.replace(/(\d{4} \d{4})(\d{1,4})/, "$1 $2")
@@ -52,24 +37,21 @@ export default function ModalAddCard({ onCardAdded }) {
 			.trim();
 	};
 
-	const formatExpiryDate = (date) => {
-		return date.replace(/\D/g, "").replace(/(\d{2})(\d{1,2})/, "$1/$2");
-	};
+	const formatExpiryDate = (date) => date.replace(/\D/g, "").replace(/(\d{2})(\d{1,2})/, "$1/$2");
 
 	const handleAddCard = async () => {
 		let valid = true;
 		const newErrors = {};
 
-		if (!validateCardNumber(cardNumber)) {
+		if (!validateCardNumber(cardData.cardNumber)) {
 			valid = false;
-			newErrors.cardNumber =
-				t(`${prefix}.number error`);
+			newErrors.cardNumber = t(`${prefix}.number error`);
 		}
-		if (!validateExpiryDate(expiryDate)) {
+		if (!validateExpiryDate(cardData.expiryDate)) {
 			valid = false;
 			newErrors.expiryDate = t(`${prefix}.date error`);
 		}
-		if (!validateCvv(cvv)) {
+		if (!validateCvv(cardData.cvv)) {
 			valid = false;
 			newErrors.cvv = t(`${prefix}.cvv error`);
 		}
@@ -78,13 +60,8 @@ export default function ModalAddCard({ onCardAdded }) {
 			try {
 				const userDocRef = doc(db, "users", id);
 				await updateDoc(userDocRef, {
-					paymentMethod: arrayUnion({
-						cardNumber,
-						expiryDate,
-						cvv,
-					}),
+					paymentMethod: arrayUnion(cardData)
 				});
-				console.log("Card added successfully");
 				onCardAdded();
 				handleClose();
 			} catch (error) {
@@ -95,82 +72,56 @@ export default function ModalAddCard({ onCardAdded }) {
 		}
 	};
 
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setCardData((prev) => ({ ...prev, [name]: value }));
+		if (name === "cardNumber") setCardData((prev) => ({ ...prev, cardNumber: formatCardNumber(value) }));
+		if (name === "expiryDate") setCardData((prev) => ({ ...prev, expiryDate: formatExpiryDate(value) }));
+	};
+
 	return (
 		<>
-			<IconButton
-				color="primary"
-				aria-label="add to bank card"
-				onClick={handleOpen}
-			>
+			<IconButton color="primary" aria-label="add to bank card" onClick={handleOpen}>
 				<AddCard style={{ fontSize: "40px" }} />
 			</IconButton>
 			<Typography color="primary">{t(`${prefix}.attach title`)}</Typography>
-			<Modal
-				open={open}
-				onClose={handleClose}
-				aria-labelledby="modal-modal-title"
-				aria-describedby="modal-modal-description"
-			>
-				<Box sx={style}>
-					<div
-						style={{
-							display: "flex",
-							flexDirection: "column",
-							gap: "20px",
-						}}
-					>
-						<Typography
-							id="modal-modal-title"
-							variant="h5"
-							component="h2"
-						>
+			<Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+				<Box sx={DETAILS_MODAL_STYLES}>
+					<div style={DETAILS_MODAL_BOX_STYLES}>
+						<Typography id="modal-modal-title" variant="h5" component="h2">
 							{t(`${prefix}.attach title`)}
 						</Typography>
-						<img
-							src="https://mythslegendscollection.com/wp-content/uploads/2020/04/visa-mastercard-american-express-png-6.png"
-							style={{ height: "85px" }}
-							alt="bank card logos"
-						/>
-
+						<img src="https://mythslegendscollection.com/wp-content/uploads/2020/04/visa-mastercard-american-express-png-6.png" style={{ height: "85px" }} alt="bank card logos" />
 						<SharedInput
-							value={cardNumber}
-							onChange={(e) =>
-								setCardNumber(formatCardNumber(e.target.value))
-							}
+							name="cardNumber"
+							value={cardData.cardNumber}
+							onChange={handleChange}
 							placeholder={t(`${prefix}.number placeholder`)}
 							style={{ width: "100%" }}
 							error={!!errors.cardNumber}
 							helperText={errors.cardNumber}
 						/>
-
-						<div style={{ display: "flex", gap: "20px" }}>
+						<div style={DETAILS_MODAL_INPUT_BOX_STYLES}>
 							<SharedInput
-								value={expiryDate}
-								onChange={(e) =>
-									setExpiryDate(
-										formatExpiryDate(e.target.value),
-									)
-								}
+								name="expiryDate"
+								value={cardData.expiryDate}
+								onChange={handleChange}
 								placeholder={t(`${prefix}.date placeholder`)}
-								style={{ width: "48%" }}
+								style={MODAL_INPUT_STYLES}
 								error={!!errors.expiryDate}
 								helperText={errors.expiryDate}
 							/>
 							<SharedInput
-								value={cvv}
-								onChange={(e) => setCvv(e.target.value)}
+								name="cvv"
+								value={cardData.cvv}
+								onChange={handleChange}
 								placeholder={t(`${prefix}.cvv placeholder`)}
-								style={{ width: "48%" }}
+								style={MODAL_INPUT_STYLES}
 								error={!!errors.cvv}
 								helperText={errors.cvv}
 							/>
 						</div>
-
-						<Button
-							onClick={handleAddCard}
-							variant="contained"
-							color="primary"
-						>
+						<Button onClick={handleAddCard} variant="contained" color="primary">
 							{t(`${prefix}.attach button`)}
 						</Button>
 					</div>

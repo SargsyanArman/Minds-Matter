@@ -14,6 +14,7 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../fireBase';
 import CloseIcon from '@mui/icons-material/Close';
 import { LangContext } from '../../../Contexts/LangContext';
+import { DETAILS_BOX_STYLES, DETAILS_CARD_STYLES } from '../../../Constants/ProfileNavigationConstants';
 
 const Details = () => {
     const { t } = useContext(LangContext);
@@ -80,20 +81,11 @@ const Details = () => {
                 tagName="simpleDiv"
                 className="pr-item"
                 ref={ref}
-                style={{
-                    margin: 0,
-                    width: "100%",
-                    minHeight: "224px",
-                    cursor: "default",
-                    marginBottom: "50px",
-                }}
+                style={DETAILS_BOX_STYLES}
             >
                 <ThemeModes tagName='h3'>{t(`${prefix}.payment`)}</ThemeModes>
                 <div className='detail-card'>
-                    <ThemeModes
-                        tagName='simpleDiv'
-                        className='detail-each-card add-card'
-                    >
+                    <ThemeModes tagName='simpleDiv' className='detail-each-card add-card' >
                         <ModalAddCard onCardAdded={updateUserData} />
                     </ThemeModes>
                     {userData?.paymentMethod && userData.paymentMethod.map((card, index) => (
@@ -102,7 +94,7 @@ const Details = () => {
                             tagName='gray-div'
                             className='detail-each-card'
                         >
-                            <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                            <div style={DETAILS_CARD_STYLES}>
                                 <p>Visa ⋅⋅ {card.cardNumber.slice(14)} </p>
                                 <img src={Visa} alt="visa image" style={{ width: '30px' }} />
                             </div>

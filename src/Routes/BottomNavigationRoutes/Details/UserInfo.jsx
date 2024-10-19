@@ -5,21 +5,16 @@ import TextMuiShared from '../../../Components/Shared/TextMuiShared';
 import DangerousIcon from '@mui/icons-material/Dangerous';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useSelector } from 'react-redux';
-import { getAuth, sendEmailVerification } from 'firebase/auth'; // Добавлен импорт
+import { getAuth, sendEmailVerification } from 'firebase/auth';
 import { useContext } from "react";
 import { LangContext } from "../../../Contexts/LangContext";
 
 import './Detail.css';
+import { USER_BOX_STYLES, USER_CIRCLE_ICON_STYLES, USER_SIZE_AVATAR } from '../../../Constants/ProfileNavigationConstants';
 
 const UserInfo = ({ userData }) => {
     const { t } = useContext(LangContext);
     const prefix = "Profile";
-
-    const sizeAvatar = {
-        height: "80px",
-        width: "80px",
-    };
-
     const userDatas = useSelector((state) => state.user);
     const { email, emailVerified } = useSelector((state) => state.user);
     const [verificationSent, setVerificationSent] = useState(false);
@@ -45,8 +40,8 @@ const UserInfo = ({ userData }) => {
 
     return (
         <>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-                <Avatar sx={{ ...sizeAvatar, marginRight: "20px" }}>
+            <div style={USER_BOX_STYLES}>
+                <Avatar sx={{ ...USER_SIZE_AVATAR }}>
                     <ThemeModes tagName="h3">
                         {userData && userData.firstName ? userData.firstName[0] : "U"}
                     </ThemeModes>
@@ -71,7 +66,7 @@ const UserInfo = ({ userData }) => {
 
                         {emailVerified ? (
                             <Tooltip title={t(`${prefix}.verified`)}>
-                                <CheckCircleIcon className='icon-info' sx={{ marginLeft: '12px', color: 'green', marginBottom: '-6px' }} />
+                                <CheckCircleIcon className='icon-info' sx={USER_CIRCLE_ICON_STYLES} />
                             </Tooltip>
                         ) : (
                             <Tooltip title={verificationSent ? t(`${prefix}.verification sent`) : t(`${prefix}.verification not sent`)}>
