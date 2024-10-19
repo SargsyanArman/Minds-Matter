@@ -1,18 +1,10 @@
 import { useContext, useState } from "react";
-import {
-  List,
-  ListItem,
-  ListItemText,
-  Collapse,
-} from "@mui/material";
-import {
-  ExpandLess,
-  ExpandMore,
-} from "@mui/icons-material";
+import { List, ListItem, ListItemText, Collapse } from "@mui/material";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import ThemeModes from "../../../Components/Shared/ThemeModes";
 import { LangContext } from "../../../Contexts/LangContext";
-import './Responsive.css'
-
+import './Responsive.css';
+import { MONEY_REFUND_BOX_STYLES, MONEY_REFUND_LI_STYLES, MONEY_REFUND_TEXT_STYLES, MONEY_REFUND_TITLE_STYLES, MONEY_REFUND_UL_STYLES } from "../../../Constants/AskAQuestionsConstants";
 
 const MoneyRefund = () => {
   const [openList, setOpenList] = useState({});
@@ -26,106 +18,63 @@ const MoneyRefund = () => {
   const { t } = useContext(LangContext);
   const prefix = "Refund";
 
-  const items = [
+  const ITEMS = [
     {
       id: 1,
-      title: t(`${prefix}.collapse1 title`),
-      nestedItems: (
-        <ul className='refund-ul' style={{ paddingLeft: "20px", listStyleType: "none" }}>
-          <li style={{ margin: "5px 0" }}>
-            {t(`${prefix}.collapse1 text1`)}
-          </li>
-          <li style={{ margin: "5px 0" }}>
-            {t(`${prefix}.collapse1 text2`)}
-          </li>
-        </ul>
-      ),
+      titleKey: "collapse1 title",
+      textKeys: ["collapse1 text1", "collapse1 text2"],
     },
     {
       id: 2,
-      title: t(`${prefix}.collapse2 title`),
-      nestedItems: (
-        <ul style={{ paddingLeft: "20px", listStyleType: "none" }}>
-          <li style={{ margin: "5px 0" }}>
-            {t(`${prefix}.collapse2 text1`)}
-          </li>
-          <li style={{ margin: "5px 0" }}>
-            {t(`${prefix}.collapse2 text2`)}
-          </li>
-        </ul>
-      ),
+      titleKey: "collapse2 title",
+      textKeys: ["collapse2 text1", "collapse2 text2"],
     },
-
     {
       id: 3,
-      title: t(`${prefix}.collapse3 title`),
-      nestedItems: (
-        <span className="ask-span" >
-          {t(`${prefix}.collapse3 text`)}
-        </span>
-      ),
+      titleKey: "collapse3 title",
+      textKeys: ["collapse3 text"],
+      isSpan: true,
     },
   ];
-  return (
-    <ThemeModes
-      tagName='simpleDiv'
-      style={{
-        padding: "30px",
 
-        display: "flex",
-        flexDirection: "column",
-        gap: " 10px",
-      }}
-    >
-      <ThemeModes
-        tagName="h3"
-        className='ask-h4'
-      >
+  return (
+    <ThemeModes tagName='simpleDiv' style={MONEY_REFUND_BOX_STYLES}>
+      <ThemeModes tagName="h3" className='ask-h4'>
         {t(`${prefix}.title`)}
       </ThemeModes>
-
-      <ThemeModes
-        tagName="p"
-        style={{
-          borderBottom: "1px solid white",
-          padding: "10px 0",
-          paddingLeft: "20px",
-          paddingBottom: "20px",
-
-          fontWeight: "normal",
-          fontSize: "20px",
-        }}
-      >
+      <ThemeModes tagName="p" style={MONEY_REFUND_TEXT_STYLES}>
         {t(`${prefix}.text`)}
       </ThemeModes>
+
       <List>
-        {items.map((item) => (
+        {ITEMS.map((item) => (
           <div key={item.id}>
-            <ListItem
-              button
-              onClick={() => item.nestedItems && handleToggle(item.id)}
-            >
+            <ListItem button onClick={() => item.textKeys && handleToggle(item.id)}>
               <ListItemText
                 primary={
-                  <ThemeModes
-                    tagName="h3"
-                    style={{ fontSize: "20px", paddingLeft: "0px" }}
-                  >
-                    {item.title}
+                  <ThemeModes tagName="h3" style={MONEY_REFUND_TITLE_STYLES}>
+                    {t(`${prefix}.${item.titleKey}`)}
                   </ThemeModes>
                 }
               />
-              {item.nestedItems ? (
-                openList[item.id] ? (
-                  <ExpandLess />
-                ) : (
-                  <ExpandMore />
-                )
-              ) : null}
+              {item.textKeys ? (openList[item.id] ? <ExpandLess /> : <ExpandMore />) : null}
             </ListItem>
-            {item.nestedItems && (
+
+            {item.textKeys && (
               <Collapse in={openList[item.id]} className="ask-p" timeout="auto" unmountOnExit>
-                {item.nestedItems}
+                {!item.isSpan ? (
+                  <ul className='refund-ul' style={MONEY_REFUND_UL_STYLES}>
+                    {item.textKeys.map((key, index) => (
+                      <li key={index} style={MONEY_REFUND_LI_STYLES}>
+                        {t(`${prefix}.${key}`)}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <span className="ask-span">
+                    {t(`${prefix}.${item.textKeys[0]}`)}
+                  </span>
+                )}
               </Collapse>
             )}
           </div>
@@ -134,4 +83,5 @@ const MoneyRefund = () => {
     </ThemeModes>
   );
 };
+
 export default MoneyRefund;

@@ -90,6 +90,36 @@ const MAKE_ORDER_IMAGE_STYLES = {
 
 const MAKE_ORDER_STEPS = [2, 3, 4, 5, 6, 7];
 
+const MONEY_REFUND_BOX_STYLES = {
+    padding: "30px",
+    display: "flex",
+    flexDirection: "column",
+    gap: " 10px",
+}
+
+const MONEY_REFUND_TEXT_STYLES = {
+    borderBottom: "1px solid white",
+    padding: "10px 0",
+    paddingLeft: "20px",
+    paddingBottom: "20px",
+    fontWeight: "normal",
+    fontSize: "20px",
+}
+
+const MONEY_REFUND_TITLE_STYLES = {
+    fontSize: "20px",
+    paddingLeft: "0px"
+}
+
+const MONEY_REFUND_UL_STYLES = {
+    paddingLeft: "20px",
+    listStyleType: "none"
+}
+
+const MONEY_REFUND_LI_STYLES = {
+    margin: "5px 0"
+}
+
 export {
     ASK_A_QUESTIONS_LIST_STYLES,
     DELIVERY_TITLE_STYLES,
@@ -105,5 +135,10 @@ export {
     DELIVERY_IMAGE_STYLES,
     MAKE_ORDER_BOX_STYLES,
     MAKE_ORDER_IMAGE_STYLES,
-    MAKE_ORDER_STEPS
+    MAKE_ORDER_STEPS,
+    MONEY_REFUND_BOX_STYLES,
+    MONEY_REFUND_TEXT_STYLES,
+    MONEY_REFUND_TITLE_STYLES,
+    MONEY_REFUND_UL_STYLES,
+    MONEY_REFUND_LI_STYLES
 }
