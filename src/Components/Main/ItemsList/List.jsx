@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import Card from "./Card";
 import "./ItemsList.css";
 import { sellers, bookPrices } from "../../../Constants/bookPrices";
-import CircularProgress from "../../../helperComponents/CircularProgress";
+import CircularProgress from "../../../HelperComponents/CircularProgress";
 import { SearchContext } from "../../../Contexts/SearchContext";
 import { CurrencyContext } from "../../../Contexts/CurrencyContext";
 import { useAuth } from "../../../Hooks/use-auth";
@@ -28,7 +28,7 @@ const List = () => {
 			});
 		}
 	}, [isAuth, id, dispatch]);
-	
+
 	const cardsArr = books.map((book, index) => {
 		return (<li key={book.id || `card-${index}`}>
 			<Card

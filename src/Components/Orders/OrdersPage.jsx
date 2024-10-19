@@ -7,7 +7,7 @@ import RightSideMain from "./RightSide/RightSideMain";
 import MyCheckbox from "./LeftSide/Checkbox";
 import { CartContext } from "../../Contexts/CartContext";
 import { useAuth } from "../../Hooks/use-auth";
-import UnauthorizedAccess from "../../helperComponents/UnauthorizedAccess";
+import UnauthorizedAccess from "../../HelperComponents/UnauthorizedAccess";
 import { LangContext } from "../../Contexts/LangContext";
 import { CurrencyContext } from "../../Contexts/CurrencyContext";
 import BoxMui from "../Shared/BoxMui";

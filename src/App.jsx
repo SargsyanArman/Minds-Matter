@@ -7,7 +7,7 @@ import SignIn from "./Routes/SignForm/SignIn";
 import SignUp from "./Routes/SignForm/SignUp";
 import ForgotPassword from "./Routes/SignForm/ForgotPassword";
 import OrdersPage from "./Components/Orders/OrdersPage";
-import PaymentPage from "./helperComponents/PaymentsPage";
+import PaymentPage from "./HelperComponents/PaymentsPage";
 import Favorites from "./Routes/BottomNavigationRoutes/Favorites/Favorites";
 import General from "./Routes/BottomNavigationRoutes/General/General";
 import Balance from "./Routes/BottomNavigationRoutes/Balance/Balance";

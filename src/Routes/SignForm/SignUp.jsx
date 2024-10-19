@@ -28,7 +28,7 @@ import {
   handleSubmit,
   handleRegister,
 } from "../../Constants/SignUpFormConstants";
-import Copyright from "../../helperComponents/Copyright";
+import Copyright from "../../HelperComponents/Copyright";
 import InputMuiShared from "../../Components/Shared/InputMuiShared";
 import ThemeModes from "../../Components/Shared/ThemeModes";
 import { LangContext } from "../../Contexts/LangContext";

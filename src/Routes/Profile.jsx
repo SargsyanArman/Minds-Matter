@@ -13,7 +13,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import ThemeModes from "../Components/Shared/ThemeModes";
 import FeedBackNavButton from "./BottomNavigationRoutes/FeedBack/FeedBackNavButton";
 import { useAuth } from "../Hooks/use-auth";
-import UnauthorizedAccess from "../helperComponents/UnauthorizedAccess";
+import UnauthorizedAccess from "../HelperComponents/UnauthorizedAccess";
 import { LangContext } from "../Contexts/LangContext";
 import { PROFILE_ACTION_STYLES, PROFILE_NAV_ACTION_STYLES } from "../Constants/ProfileNavigationConstants";
 
