@@ -5,7 +5,7 @@ import ThemeModes from "../../../Components/Shared/ThemeModes";
 import { Collapse, List, ListItem, ListItemText } from "@mui/material";
 import { LangContext } from "../../../Contexts/LangContext";
 import './responsive.css';
-import { PAYMENT_METHOD_COLLAPSE_STYLES, PAYMENT_METHOD_IMAGE_STYLES } from "../../../Constants/AskAQuestionsConstants";
+import { IMAGE, PAYMENT_METHOD_COLLAPSE_STYLES, PAYMENT_METHOD_IMAGE_STYLES, TEXT } from "../../../Constants/AskAQuestionsConstants";
 
 const PaymentMethods = () => {
   const [openList, setOpenList] = useState({});
@@ -83,12 +83,12 @@ const PaymentMethods = () => {
             <Collapse in={openList[item.id]} timeout="auto" unmountOnExit>
               <div style={PAYMENT_METHOD_COLLAPSE_STYLES}>
                 {item.nestedItems.map((nestedItem, index) => {
-                  if (nestedItem.type === 'text') {
+                  if (nestedItem.type === TEXT) {
                     return (
                       <ThemeModes className={nestedItem.isHeader ? 'ask-h3' : 'ask-p'} key={index}> {t(`${prefix}.${nestedItem.key}`)} </ThemeModes>
                     );
                   }
-                  if (nestedItem.type === 'image') {
+                  if (nestedItem.type === IMAGE) {
                     return (
                       <img key={index} src={nestedItem.src} alt={nestedItem.alt} style={nestedItem.style} className="image-card" />
                     );

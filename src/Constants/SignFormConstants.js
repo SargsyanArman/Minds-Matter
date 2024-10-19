@@ -11,6 +11,8 @@ const StyledLink = styled(Link)({
   },
 });
 
+const FIRST_NAME = "firstName"
+
 const SIGNIN_BOX_STYLES = {
   marginTop: 8,
   display: "flex",
@@ -32,5 +34,6 @@ export {
   StyledLink,
   SIGNIN_BOX_STYLES,
   SIGNIN_BUTTON_STYLES,
-  SIGNIN_COPYRIGHT_STYLES
+  SIGNIN_COPYRIGHT_STYLES,
+  FIRST_NAME
 };

@@ -14,7 +14,7 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../../fireBase';
 import CloseIcon from '@mui/icons-material/Close';
 import { LangContext } from '../../../Contexts/LangContext';
-import { DETAILS_BOX_STYLES, DETAILS_CARD_STYLES } from '../../../Constants/ProfileNavigationConstants';
+import { DETAILS_BOX_STYLES, DETAILS_CARD_STYLES, PAYMENT_METHODS } from '../../../Constants/ProfileNavigationConstants';
 
 const Details = () => {
     const { t } = useContext(LangContext);
@@ -25,7 +25,7 @@ const Details = () => {
 
     const ref = useRef(null)
     useEffect(() => {
-        if (location.state?.from === 'payment_methods' && ref.current) {
+        if (location.state?.from === PAYMENT_METHODS && ref.current) {
             ref.current.scrollIntoView({
                 behavior: 'smooth'
             })

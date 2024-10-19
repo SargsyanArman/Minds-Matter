@@ -32,7 +32,7 @@ import Copyright from "../../HelperComponents/Copyright";
 import InputMuiShared from "../../Components/Shared/InputMuiShared";
 import ThemeModes from "../../Components/Shared/ThemeModes";
 import { LangContext } from "../../Contexts/LangContext";
-import { SIGNIN_BUTTON_STYLES } from "../../Constants/SignFormConstants";
+import { FIRST_NAME, SIGNIN_BUTTON_STYLES } from "../../Constants/SignFormConstants";
 import { DARK } from "../../Constants/GlobalConstants";
 
 const StyledLink = styled(Link)`
@@ -94,9 +94,9 @@ export default function AccMenu() {
                       required
                       fullWidth
                       id={name}
-                      label={t(`${prefix}.${name === "firstName" ? "fname" : "lname"}`)}
+                      label={t(`${prefix}.${name === FIRST_NAME ? "fname" : "lname"}`)}
                       name={name}
-                      autoComplete={name === "firstName" ? "given-name" : "family-name"}
+                      autoComplete={name === FIRST_NAME ? "given-name" : "family-name"}
                     />
                   </Grid>
                 ))}

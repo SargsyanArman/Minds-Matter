@@ -8,6 +8,7 @@ import SharedInput from "../../../Components/Shared/SharedInput";
 import { useContext } from "react";
 import { LangContext } from "../../../Contexts/LangContext";
 import { DETAILS_MODAL_BOX_STYLES, DETAILS_MODAL_INPUT_BOX_STYLES, DETAILS_MODAL_STYLES, MODAL_INPUT_STYLES } from '../../../Constants/ProfileNavigationConstants';
+import { CARD_NUMBER, EXPIRY_DATE } from "../../../Constants/GlobalConstants";
 
 export default function ModalAddCard({ onCardAdded }) {
 	const [open, setOpen] = useState(false);
@@ -75,8 +76,8 @@ export default function ModalAddCard({ onCardAdded }) {
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setCardData((prev) => ({ ...prev, [name]: value }));
-		if (name === "cardNumber") setCardData((prev) => ({ ...prev, cardNumber: formatCardNumber(value) }));
-		if (name === "expiryDate") setCardData((prev) => ({ ...prev, expiryDate: formatExpiryDate(value) }));
+		if (name === CARD_NUMBER) setCardData((prev) => ({ ...prev, cardNumber: formatCardNumber(value) }));
+		if (name === EXPIRY_DATE) setCardData((prev) => ({ ...prev, expiryDate: formatExpiryDate(value) }));
 	};
 
 	return (

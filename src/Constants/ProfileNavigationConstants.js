@@ -233,6 +233,9 @@ const PROFILE_ACTION_STYLES = {
     display: { xs: 'none', md2: 'flex' }
 }
 
+
+const PAYMENT_METHODS = 'payment_methods'
+
 export {
     BALANCE_TITLE_STYLES,
     BALLANCE_BUTTON_STYLES,
@@ -270,5 +273,6 @@ export {
     PURCHASES_BOX_STYLE,
     SORT_STYLES,
     PROFILE_NAV_ACTION_STYLES,
-    PROFILE_ACTION_STYLES
+    PROFILE_ACTION_STYLES,
+    PAYMENT_METHODS
 }

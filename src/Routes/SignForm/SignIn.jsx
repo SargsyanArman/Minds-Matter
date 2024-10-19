@@ -18,6 +18,7 @@ import InputMuiShared from "../../Components/Shared/InputMuiShared";
 import { LangContext } from "../../Contexts/LangContext";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
+import { DARK } from "../../Constants/GlobalConstants";
 
 const defaultTheme = createTheme();
 
@@ -75,7 +76,7 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <div style={{ backgroundColor: mode === "dark" ? "#aaaaaa" : "white" }}>
+      <div style={{ backgroundColor: mode === DARK ? "#aaaaaa" : "white" }}>
         <Container component="main" maxWidth="xs" sx={{ padding: "1px" }}>
           <CssBaseline />
           <Box

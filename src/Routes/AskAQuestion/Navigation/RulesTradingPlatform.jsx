@@ -7,6 +7,7 @@ import { LangContext } from "../../../Contexts/LangContext";
 import { Trans } from "react-i18next";
 import './Responsive.css';
 import { RETURN_SPAN_STYLES, RULES_TRADING_STYLES } from "../../../Constants/AskAQuestionsConstants";
+import { LEFT } from "../../../Constants/GlobalConstants";
 
 const RulesTradingPlatform = () => {
   const [alignment, setAlignment] = useState("left");
@@ -96,7 +97,7 @@ const RulesTradingPlatform = () => {
         rightLabel={t(`${prefix}.page2`)}
       />
       <div>
-        {alignment === "left" ? (
+        {alignment === LEFT ? (
           renderTextBlock("title1", ["period1", "period2"])
         ) : (
           <div>

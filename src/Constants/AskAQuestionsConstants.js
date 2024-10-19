@@ -194,6 +194,11 @@ const BOTTOM_NAVIGATION_STYLES = {
     justifyContent: "space-between",
     flexWrap: { xs: 'wrap', md2: 'nowrap', height: 'auto' }
 }
+
+const TEXT = 'text'
+
+const IMAGE = 'image'
+
 export {
     ASK_A_QUESTIONS_LIST_STYLES,
     DELIVERY_TITLE_STYLES,
@@ -226,5 +231,7 @@ export {
     RULES_SELLING_STYLES,
     RULES_TRADING_STYLES,
     BOTTOM_NAVIGATION_ACTION_STYLES,
-    BOTTOM_NAVIGATION_STYLES
+    BOTTOM_NAVIGATION_STYLES,
+    TEXT,
+    IMAGE
 }

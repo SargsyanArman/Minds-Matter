@@ -4,6 +4,7 @@ import { LangContext } from "../Contexts/LangContext";
 
 import "./payment.css";
 import ThemeModes from "../Components/Shared/ThemeModes";
+import { CARD_NUMBER, EXPIRY_DATE } from "../Constants/GlobalConstants";
 
 const PaymentPage = () => {
   const { curr, exchange } = useContext(CurrencyContext);
@@ -40,9 +41,9 @@ const PaymentPage = () => {
 
     let formattedValue = value;
 
-    if (name === "cardNumber") {
+    if (name === CARD_NUMBER) {
       formattedValue = formatCardNumber(value);
-    } else if (name === "expiryDate") {
+    } else if (name === EXPIRY_DATE) {
       formattedValue = formatExpiryDate(value);
     }
 

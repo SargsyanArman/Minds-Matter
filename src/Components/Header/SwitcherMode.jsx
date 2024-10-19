@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setMode } from "../../Store/Slices/modeSlices";
 import { LangContext } from "../../Contexts/LangContext";
 import { ListItemText } from "@mui/material";
+import { DARK } from "../../Constants/GlobalConstants";
 
 export default function SwitcherMode() {
   const mode = useSelector((state) => state.mode.mode);
@@ -18,7 +19,7 @@ export default function SwitcherMode() {
     { value: "dark", icon: <Brightness4 sx={{ mr: 1, color: "black" }} />, label: t(`${prefix}.dark mode`) },
   ];
 
-  const Icon = mode === "light" ? Brightness7 : Brightness4;
+  const Icon = mode === DARK ? Brightness4 : Brightness7;
 
   return (
     <StyledSelect

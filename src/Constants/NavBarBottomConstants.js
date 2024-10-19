@@ -1,8 +1,9 @@
+import { DARK } from "./GlobalConstants";
 
 export const NAV_BAR_STYLES = (mode) => ({
     top: 'auto',
     bottom: 0,
-    background: mode === "dark"
+    background: mode === DARK
         ? "linear-gradient(to right, #9d0000, #d40000)"
         : "linear-gradient(to right, #a103fc, #e703fc)",
     height: "60px",

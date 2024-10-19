@@ -24,7 +24,7 @@ const SharedInput = ({
         borderColor: mode === DARK ? "#ff0000" : "#8e44ad",
       },
       color: mode === DARK ? "white" : "black",
-      backgroundColor: mode === "dark" ? "#2c2c2c" : "#f5f5f5",
+      backgroundColor: mode === DARK ? "#2c2c2c" : "#f5f5f5",
     },
     "& .MuiInputLabel-root": {
       color: mode === DARK ? "#c30000" : "#a73afd",
