@@ -7,8 +7,8 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { CurrencyContext } from "../../../Contexts/CurrencyContext";
 import { LangContext } from "../../../Contexts/LangContext";
-
 import './Balance.css';
+import { BALANCE_SPAN_STYLES, BALANCE_TITLE_STYLES, BALLANCE_BUTTON_STYLES, BALLANCE_ICON_STYLES } from "../../../Constants/ProfileNavigationConstants";
 
 const Balance = () => {
   const navigate = useNavigate();
@@ -22,47 +22,29 @@ const Balance = () => {
   }
 
   return (
-    <ThemeModes
-      tagName="simpleDiv"
-      className='balance-main'
-    >
+    <ThemeModes tagName="simpleDiv" className='balance-main'>
       <ThemeModes className='balance-card'>
-        <ThemeModes
-          tagName="gray-div"
-          className="pr-item balance-total"
-        >
-          <ThemeModes
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              marginBottom: "12px",
-            }}
-          >
+        <ThemeModes tagName="gray-div" className="pr-item balance-total">
+          <ThemeModes style={BALANCE_TITLE_STYLES}>
             <ThemeModes tagName="h3">
-              <FormatBoldOutlined style={{ margin: "10px 10px 0 0" }} />
+              <FormatBoldOutlined style={BALLANCE_ICON_STYLES} />
             </ThemeModes>
-            <ThemeModes tagName="span" style={{ fontSize: "28px", marginBottom: '3px' }}>
+
+            <ThemeModes tagName="span" style={BALANCE_SPAN_STYLES}>
               {exchange(0, 'USD')} {curr.currSymbol}
             </ThemeModes>
           </ThemeModes>
+
           <ThemeModes tagName="button_mode" className='button-topUp' onClick={() => navigate('/payment')}>
             {t(`${prefix}.wallet`)}
           </ThemeModes>
         </ThemeModes>
 
-        <ThemeModes
-          tagName="gray-div"
-          className="pr-item certificate"
-        >
-          <ThemeModes
-            style={{
-              display: "flex",
-              alignItems: "flex-end",
-              marginBottom: "12px",
-            }}
-          >
+        <ThemeModes tagName="gray-div" className="pr-item certificate">
+          <ThemeModes style={BALANCE_TITLE_STYLES}>
             <ThemeModes tagName="h3">{t(`${prefix}.gift title`)}</ThemeModes>
           </ThemeModes>
+
           <SharedInput
             onChange={handleChange}
             value={value}
@@ -72,22 +54,14 @@ const Balance = () => {
           {!!value && (
             <Button
               disabled
-              sx={{
-                marginTop: "12px",
-                width: "226px",
-                backgroundColor: "gray",
-                cursor: "not-allowed",
-                "&.Mui-disabled": {
-                  cursor: "not-allowed",
-                  backgroundColor: "lightgray",
-                },
-              }}
+              sx={BALLANCE_BUTTON_STYLES}
             >
               {t(`${prefix}.gift button`)}
             </Button>
           )}
         </ThemeModes>
       </ThemeModes>
+
       <ThemeModes className='operations'>
         <ThemeModes tagName="h3">{t(`${prefix}.operations title`)}</ThemeModes>
         <br />
