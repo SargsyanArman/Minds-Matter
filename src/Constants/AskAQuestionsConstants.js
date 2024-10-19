@@ -171,6 +171,14 @@ const RULES_SELLING_STYLES = {
     gap: "10px",
 }
 
+const RULES_TRADING_STYLES = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "6px",
+    flexWrap: "nowrap",
+    marginLeft: "20px"
+}
+
 export {
     ASK_A_QUESTIONS_LIST_STYLES,
     DELIVERY_TITLE_STYLES,
@@ -200,5 +208,6 @@ export {
     RETURN_SECTION_STYLES,
     RETURN_SPAN_STYLES,
     RETURN_B_STYLES,
-    RULES_SELLING_STYLES
+    RULES_SELLING_STYLES,
+    RULES_TRADING_STYLES
 }

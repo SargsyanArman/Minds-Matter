@@ -10,7 +10,7 @@ const RulesForSelling = () => {
   const { t } = useContext(LangContext);
   const prefix = "Selling rules";
 
-  const rules = [
+  const RULES = [
     { text: t(`${prefix}.rule1`), num: "1." },
     { text: t(`${prefix}.rule2`), num: "2." },
     {
@@ -32,7 +32,7 @@ const RulesForSelling = () => {
       style={RULES_SELLING_STYLES}
     >
       <ThemeModes tagName="h3">{t(`${prefix}.title`)}</ThemeModes>
-      {rules.map((rule, index) => (
+      {RULES.map((rule, index) => (
         <BoldTextNumeric key={index} text={rule.text} num={rule.num} />
       ))}
     </ThemeModes>
