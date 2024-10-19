@@ -4,6 +4,7 @@ import ThemeModes from "../../../../Components/Shared/ThemeModes";
 import { LangContext } from "../../../../Contexts/LangContext";
 
 import "./puchaseNav.css";
+import { FD_BOX_STYLES, FD_COMMENT_STYLES } from "../../../../Constants/ProfileNavigationConstants";
 
 const Deliveries = () => {
   const { t } = useContext(LangContext);
@@ -12,9 +13,9 @@ const Deliveries = () => {
   const navigate = useNavigate();
 
   return (
-    <ThemeModes tagName="simpleDiv" style={{ padding: "32px 0 32px 32px" }}>
+    <ThemeModes tagName="simpleDiv" style={FD_BOX_STYLES}>
       <ThemeModes tagName="h3">{t(`${prefix}.deliveries title`)}</ThemeModes>
-      <ThemeModes tagName="gn-p" style={{ margin: "22px 0" }}>
+      <ThemeModes tagName="gn-p" style={FD_COMMENT_STYLES}>
         {t(`${prefix}.deliveries text`)}
       </ThemeModes>
       <ThemeModes tagName="button_mode" onClick={() => navigate('/orders')}>{t(`${prefix}.deliveries button`)}</ThemeModes>

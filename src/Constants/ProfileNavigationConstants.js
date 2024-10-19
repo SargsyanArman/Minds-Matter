@@ -184,6 +184,37 @@ const MARGIN_RIGHT_TEN = {
     marginRight: '10px',
 }
 
+const PURCHASES_NAV_STYLES = {
+    justifyContent: "space-between",
+    width: { xs: '100%', md2: "40%" },
+    backgroundColor: "#d5d2d2",
+};
+
+const PURCHASES_NAV_ACTION_STYLES = {
+    display: "flex",
+    flexDirection: "row",
+    gap: "10px",
+    flex: 1,
+    "& .MuiBottomNavigationAction-label": {
+        fontSize: "15px",
+    },
+    "& .MuiBottomNavigationAction-icon": {
+        fontSize: "24px",
+    },
+};
+
+const PURCHASES_BOX_STYLE = {
+    width: "100%",
+    backgroundColor: "#d5d2d2",
+}
+
+const SORT_STYLES = {
+    width: { xs: '100%', xs400: '60%', md2: "30%" },
+    height: "44px",
+    borderRadius: "10px",
+};
+
+
 export {
     BALANCE_TITLE_STYLES,
     BALLANCE_BUTTON_STYLES,
@@ -215,5 +246,9 @@ export {
     MAX_TOTAL,
     STAR_STYLES,
     GENERAL_SPAN_STYLES,
-    MARGIN_RIGHT_TEN
+    MARGIN_RIGHT_TEN,
+    PURCHASES_NAV_STYLES,
+    PURCHASES_NAV_ACTION_STYLES,
+    PURCHASES_BOX_STYLE,
+    SORT_STYLES
 }

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import ThemeModes from "../../../../Components/Shared/ThemeModes";
 import { LangContext } from "../../../../Contexts/LangContext";
+import { FD_BOX_STYLES, FD_COMMENT_STYLES } from "../../../../Constants/ProfileNavigationConstants";
 
 const Checks = () => {
   const { t } = useContext(LangContext);
@@ -10,8 +11,8 @@ const Checks = () => {
   const navigate = useNavigate();
 
   return (
-    <ThemeModes tagName="simpleDiv" style={{ padding: "32px 0 32px 32px" }}>
-      <ThemeModes tagName="h3" style={{ margin: "20px 0" }}>
+    <ThemeModes tagName="simpleDiv" style={FD_BOX_STYLES}>
+      <ThemeModes tagName="h3" style={FD_COMMENT_STYLES}>
         {t(`${prefix}.checks title`)}
       </ThemeModes>
       <ThemeModes tagName="gn-p" style={{ paddingBottom: "20px" }}>
