@@ -179,6 +179,21 @@ const RULES_TRADING_STYLES = {
     marginLeft: "20px"
 }
 
+const BOTTOM_NAVIGATION_ACTION_STYLES = {
+    display: "flex",
+    flexDirection: "row",
+    color: "black",
+    gap: "10px",
+    flex: 1,
+    fontSize: { xs: '14px', sm: '24px' },
+    height: 'auto',
+    margin: '10px 0'
+};
+
+const BOTTOM_NAVIGATION_STYLES = {
+    justifyContent: "space-between",
+    flexWrap: { xs: 'wrap', md2: 'nowrap', height: 'auto' }
+}
 export {
     ASK_A_QUESTIONS_LIST_STYLES,
     DELIVERY_TITLE_STYLES,
@@ -209,5 +224,7 @@ export {
     RETURN_SPAN_STYLES,
     RETURN_B_STYLES,
     RULES_SELLING_STYLES,
-    RULES_TRADING_STYLES
+    RULES_TRADING_STYLES,
+    BOTTOM_NAVIGATION_ACTION_STYLES,
+    BOTTOM_NAVIGATION_STYLES
 }

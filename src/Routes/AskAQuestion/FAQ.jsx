@@ -3,17 +3,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import ThemeModes from "../../Components/Shared/ThemeModes";
 import { LangContext } from "../../Contexts/LangContext";
-
-const bottomNavigationActionStyles = {
-  display: "flex",
-  flexDirection: "row",
-  color: "black",
-  gap: "10px",
-  flex: 1,
-  fontSize: { xs: '14px', sm: '24px' },
-  height: 'auto',
-  margin: '10px 0'
-};
+import { BOTTOM_NAVIGATION_ACTION_STYLES, BOTTOM_NAVIGATION_STYLES } from "../../Constants/AskAQuestionsConstants";
 
 const FAQ = () => {
   const { t } = useContext(LangContext);
@@ -65,11 +55,7 @@ const FAQ = () => {
         showLabels
         value={value}
         onChange={(event, newValue) => setValue(newValue)}
-        sx={{
-          justifyContent: "space-between", flexWrap: {
-            xs: 'wrap', md2: 'nowrap', height: 'auto'
-          },
-        }}
+        sx={BOTTOM_NAVIGATION_STYLES}
       >
         {FAQ_NAVIGATION.map(({ to, label }) => (
           <BottomNavigationAction
@@ -77,7 +63,7 @@ const FAQ = () => {
             component={Link}
             to={to}
             label={label}
-            sx={bottomNavigationActionStyles}
+            sx={BOTTOM_NAVIGATION_ACTION_STYLES}
           />
         ))}
       </BottomNavigation>
