@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { LangContext } from "../../../Contexts/LangContext";
 import { Trans } from "react-i18next";
-import "./aboutus.css";
+import "./Aboutus.css";
 import MindMatter from '/Mind_Matter.png';
 import orders from '/orders.png';
 import warehouse from '/warehouse.png';

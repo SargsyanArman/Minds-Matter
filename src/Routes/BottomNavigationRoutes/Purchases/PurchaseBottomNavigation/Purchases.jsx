@@ -4,7 +4,7 @@ import { MenuItem, Select } from "@mui/material";
 import { useSelector } from "react-redux";
 import { LangContext } from "../../../../Contexts/LangContext";
 
-import "./puchaseNav.css";
+import "./PuchaseNav.css";
 import { FD_COMMENT_STYLES, SORT_STYLES } from "../../../../Constants/ProfileNavigationConstants";
 import { DARK } from "../../../../Constants/GlobalConstants";
 

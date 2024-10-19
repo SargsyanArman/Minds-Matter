@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { Box, List, ListItem } from '@mui/material';
 import { LangContext } from '../../../Contexts/LangContext';
 import ThemeModes from '../../../Components/Shared/ThemeModes';
-import './responsive.css';
+import './Responsive.css';
 import { ASK_A_QUESTIONS_LIST_STYLES } from '../../../Constants/AskAQuestionsConstants';
 
 const AskAQuestion = () => {

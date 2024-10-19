@@ -1,7 +1,7 @@
 import { LangContext } from "../../Contexts/LangContext";
 import { useContext } from "react";
 import { ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material";
-import "./menus.css";
+import "./Menu.css";
 import { LANG_MENU_STYLES } from "../../Constants/HeaderConstants";
 
 const LangMenu = () => {

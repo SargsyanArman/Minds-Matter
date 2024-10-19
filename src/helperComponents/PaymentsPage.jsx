@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { CurrencyContext } from "../Contexts/CurrencyContext";
 import { LangContext } from "../Contexts/LangContext";
 
-import "./payment.css";
+import "./Payment.css";
 import ThemeModes from "../Components/Shared/ThemeModes";
 import { CARD_NUMBER, EXPIRY_DATE } from "../Constants/GlobalConstants";
 

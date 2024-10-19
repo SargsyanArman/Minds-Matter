@@ -4,7 +4,7 @@ import { LangContext } from '../../../Contexts/LangContext';
 import { CurrencyContext } from '../../../Contexts/CurrencyContext';
 
 import '../../../index.css';
-import './bugBounty.css';
+import './BugBounty.css';
 import { Trans } from 'react-i18next';
 
 const BugBounty = () => {
@@ -62,48 +62,48 @@ const BugBounty = () => {
     ];
 
     const testingRules = [
-        {rule: t(`${prefix}.testingRule1`)},
-        {rule: t(`${prefix}.testingRule2`)},
-        {rule: t(`${prefix}.testingRule3`)},
-        {rule: t(`${prefix}.testingRule4`)},
-        {rule: t(`${prefix}.testingRule5`)}
+        { rule: t(`${prefix}.testingRule1`) },
+        { rule: t(`${prefix}.testingRule2`) },
+        { rule: t(`${prefix}.testingRule3`) },
+        { rule: t(`${prefix}.testingRule4`) },
+        { rule: t(`${prefix}.testingRule5`) }
     ];
 
     const exceptions = [
-        {exception: t(`${prefix}.exception1`)},
-        {exception: t(`${prefix}.exception2`)},
-        {exception: t(`${prefix}.exception3`)},
-        {exception: t(`${prefix}.exception4`)},
-        {exception: t(`${prefix}.exception5`)},
-        {exception: t(`${prefix}.exception6`)},
-        {exception: t(`${prefix}.exception7`)}
+        { exception: t(`${prefix}.exception1`) },
+        { exception: t(`${prefix}.exception2`) },
+        { exception: t(`${prefix}.exception3`) },
+        { exception: t(`${prefix}.exception4`) },
+        { exception: t(`${prefix}.exception5`) },
+        { exception: t(`${prefix}.exception6`) },
+        { exception: t(`${prefix}.exception7`) }
     ];
 
     const webExceptions = [
-        {webException: t(`${prefix}.webException1`)},
-        {webException: t(`${prefix}.webException2`)},
-        {webException: t(`${prefix}.webException3`)},
-        {webException: t(`${prefix}.webException4`)},
-        {webException: t(`${prefix}.webException5`)},
-        {webException: t(`${prefix}.webException6`)},
-        {webException: t(`${prefix}.webException7`)},
-        {webException: t(`${prefix}.webException8`)},
-        {webException: t(`${prefix}.webException9`)},
-        {webException: t(`${prefix}.webException10`)},
-        {webException: t(`${prefix}.webException11`)},
-        {webException: t(`${prefix}.webException12`)},
-        {webException: t(`${prefix}.webException13`)},
-        {webException: t(`${prefix}.webException14`)},
-        {webException: t(`${prefix}.webException15`)},
-        {webException: t(`${prefix}.webException16`)}
+        { webException: t(`${prefix}.webException1`) },
+        { webException: t(`${prefix}.webException2`) },
+        { webException: t(`${prefix}.webException3`) },
+        { webException: t(`${prefix}.webException4`) },
+        { webException: t(`${prefix}.webException5`) },
+        { webException: t(`${prefix}.webException6`) },
+        { webException: t(`${prefix}.webException7`) },
+        { webException: t(`${prefix}.webException8`) },
+        { webException: t(`${prefix}.webException9`) },
+        { webException: t(`${prefix}.webException10`) },
+        { webException: t(`${prefix}.webException11`) },
+        { webException: t(`${prefix}.webException12`) },
+        { webException: t(`${prefix}.webException13`) },
+        { webException: t(`${prefix}.webException14`) },
+        { webException: t(`${prefix}.webException15`) },
+        { webException: t(`${prefix}.webException16`) }
     ];
 
     const duplicates = [
-        {duplicate: t(`${prefix}.duplicate1`)},
-        {duplicate: t(`${prefix}.duplicate2`)},
-        {duplicate: t(`${prefix}.duplicate3`)},
-        {duplicate: t(`${prefix}.duplicate4`)},
-        {duplicate: t(`${prefix}.duplicate5`)}
+        { duplicate: t(`${prefix}.duplicate1`) },
+        { duplicate: t(`${prefix}.duplicate2`) },
+        { duplicate: t(`${prefix}.duplicate3`) },
+        { duplicate: t(`${prefix}.duplicate4`) },
+        { duplicate: t(`${prefix}.duplicate5`) }
     ];
 
     return (
@@ -115,7 +115,7 @@ const BugBounty = () => {
                 <ThemeModes tagName='p'>{t(`${prefix}.subheader1 text1`)}</ThemeModes>
                 <ThemeModes tagName='p'>
                     <Trans i18nKey={`${prefix}.subheader1 text2`} >
-                        The following <strong>cannot</strong> participate in the program: 
+                        The following <strong>cannot</strong> participate in the program:
                     </Trans>
                 </ThemeModes>
                 <ul className='rules'>
@@ -124,7 +124,7 @@ const BugBounty = () => {
                 </ul>
                 <ThemeModes tagName='p'>
                     <Trans i18nKey={`${prefix}.subheader1 text3`} >
-                        Participants are required to maintain confidentiality regarding information about vulnerabilities found. 
+                        Participants are required to maintain confidentiality regarding information about vulnerabilities found.
                         <strong>Disclosure</strong> of this information is permitted only <strong>with prior approval</strong> from Minds Matter.
                     </Trans>
                 </ThemeModes>

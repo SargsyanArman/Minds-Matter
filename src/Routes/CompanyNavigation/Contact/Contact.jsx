@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import ContactCards from "./ContactCards";
 
-import "./contact.css";
+import "./Contact.css";
 import { LangContext } from "../../../Contexts/LangContext";
 import ThemeModes from "../../../Components/Shared/ThemeModes";
 import { useNavigate } from "react-router-dom";

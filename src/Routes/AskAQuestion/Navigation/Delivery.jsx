@@ -6,8 +6,8 @@ import { useContext, useRef } from "react";
 import ThemeModes from "../../../Components/Shared/ThemeModes";
 import { LangContext } from "../../../Contexts/LangContext";
 import BoxMui from "../../../Components/Shared/BoxMui";
-import './responsive.css';
-import './delivery.css';
+import './Responsive.css';
+import './Delivery.css';
 import { DELIVERY_BOX_STYLES, DELIVERY_BOX_STYLES_FIFTH, DELIVERY_BOX_STYLES_FORTH, DELIVERY_BOX_STYLES_SECOND, DELIVERY_BOX_STYLES_THIRD, DELIVERY_CARTON_STYLES, DELIVERY_IMAGE_STYLES, DELIVERY_TITLE_STYLES, DETAILS_BUTTON_STYLES, FEAUTRE_STYLES, FONT_SIZE_FORTY } from "../../../Constants/AskAQuestionsConstants";
 
 const Address = ({ address, text }) => (

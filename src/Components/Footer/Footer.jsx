@@ -2,7 +2,7 @@ import ThemeModes from "../Shared/ThemeModes";
 import FooterColumn from "./FooterColumn";
 import { useContext } from "react";
 import { LangContext } from "../../Contexts/LangContext";
-import "./footer.css";
+import "./Footer.css";
 
 const Footer = () => {
   const { t } = useContext(LangContext);

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ThemeModes from "../../../Components/Shared/ThemeModes";
 import { Comment, List, SimpleText } from "./ReadyMadeTemplates";
 import { LangContext } from "../../../Contexts/LangContext";
-import './responsive.css';
+import './Responsive.css';
 import { RETURN_B_STYLES, RETURN_SECTION_STYLES, RETURN_SPAN_STYLES } from "../../../Constants/AskAQuestionsConstants";
 
 const Return = () => {

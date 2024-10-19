@@ -4,7 +4,7 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ThemeModes from "../../../Components/Shared/ThemeModes";
 import { Collapse, List, ListItem, ListItemText } from "@mui/material";
 import { LangContext } from "../../../Contexts/LangContext";
-import './responsive.css';
+import './Responsive.css';
 import { IMAGE, PAYMENT_METHOD_COLLAPSE_STYLES, PAYMENT_METHOD_IMAGE_STYLES, TEXT } from "../../../Constants/AskAQuestionsConstants";
 
 const PaymentMethods = () => {

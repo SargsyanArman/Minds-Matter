@@ -1,7 +1,7 @@
 import { CurrencyContext } from "../../Contexts/CurrencyContext";
 import { useContext, useCallback } from "react";
 import { ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material";
-import "./menus.css";
+import "./Menu.css";
 import { CURR_MENU_STYLES } from "../../Constants/HeaderConstants";
 
 const CurrMenu = () => {

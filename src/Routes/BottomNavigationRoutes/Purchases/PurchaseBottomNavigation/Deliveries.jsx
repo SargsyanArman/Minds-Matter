@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ThemeModes from "../../../../Components/Shared/ThemeModes";
 import { LangContext } from "../../../../Contexts/LangContext";
 
-import "./puchaseNav.css";
+import "./PuchaseNav.css";
 import { FD_BOX_STYLES, FD_COMMENT_STYLES } from "../../../../Constants/ProfileNavigationConstants";
 
 const Deliveries = () => {
