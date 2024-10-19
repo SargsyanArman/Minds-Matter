@@ -3,6 +3,7 @@ import { Box, List, ListItem } from '@mui/material';
 import { LangContext } from '../../../Contexts/LangContext';
 import ThemeModes from '../../../Components/Shared/ThemeModes';
 import './responsive.css';
+import { ASK_A_QUESTIONS_LIST_STYLES } from '../../../Constants/AskAQuestionsConstants';
 
 const AskAQuestion = () => {
   const { t } = useContext(LangContext);
@@ -46,11 +47,7 @@ const AskAQuestion = () => {
       <ThemeModes tagName="div" className="left-div">
         <List>
           {sections.map(({ id, title }) => (
-            <ListItem
-              key={id}
-              onClick={() => handleSectionClick(id)}
-              sx={{ cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }}
-            >
+            <ListItem key={id} onClick={() => handleSectionClick(id)} sx={ASK_A_QUESTIONS_LIST_STYLES} >
               <ThemeModes tagName="h3" className="ask-h3">{title}</ThemeModes>
             </ListItem>
           ))}
